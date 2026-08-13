@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="container">
+    <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+    {% if site.links.length %}
+      <ul class="footer-links">
+        {% for link in site.links %}
+          <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <p class="copyright">&copy; {% year %} {{ site.name }}</p>
+  </div>
+</footer>

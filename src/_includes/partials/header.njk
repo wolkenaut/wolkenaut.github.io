@@ -1,0 +1,11 @@
+<header class="site-header">
+  <div class="container">
+    <a class="site-title" href="/">{{ site.name }}</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a>
+      <a href="/mathematics/"{% if page.url == "/mathematics/" %} aria-current="page"{% endif %}>Mathematics</a>
+      <a href="/astronomy/"{% if page.url == "/astronomy/" %} aria-current="page"{% endif %}>Astronomy</a>
+      <a href="/hobbies/"{% if page.url == "/hobbies/" %} aria-current="page"{% endif %}>Hobbies</a>
+    </nav>
+  </div>
+</header>

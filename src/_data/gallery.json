@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Orion Nebula",
+    "filename": "astro/orion-nebula.jpg",
+    "dimensions": "1500×1000",
+    "alt": "A wide-field image of the Orion Nebula (M42), showing its characteristic pink and blue emission structure."
+  },
+  {
+    "title": "Antares Nebula",
+    "filename": "astro/antares-nebula.jpg",
+    "dimensions": "1500×1000",
+    "alt": "A wide-field image of the Antares Nebula region, with red and gold dust clouds surrounding the star Antares."
+  },
+  {
+    "title": "Andromeda Galaxy",
+    "filename": "astro/andromeda-galaxy.jpg",
+    "dimensions": "1500×1000",
+    "alt": "A deep-sky image of the Andromeda Galaxy (M31) showing its spiral structure."
+  }
+]

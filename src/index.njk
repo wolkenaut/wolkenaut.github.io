@@ -1,0 +1,62 @@
+---
+layout: layouts/base.njk
+title: Home
+description: James Collier — mathematics, astrophotography, and data engineering.
+---
+<section class="hero" id="hero" data-nav-section="/">
+  {% include "partials/hero-checkerboard.njk" %}
+  <div class="container hero-content">
+    <p class="eyebrow">{{ site.tagline }}</p>
+    <h1>{{ site.name }}</h1>
+  </div>
+</section>
+
+<section id="about" data-nav-section="/">
+  <div class="container">
+    <div class="reveal">
+      <h2>About</h2>
+      <p>
+        Hello! My name is James Collier and I am a Yale alum who graduated in
+        2026. I am studying mathematics, but I am also passionate about
+        astronomy, physics, statistics, and linguistics. I've been an
+        astrophotographer, an astronomy teacher, and currently do work in
+        data engineering.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="explore" data-nav-section="/">
+  <div class="container">
+    <div class="reveal">
+      <h2>Explore</h2>
+      <div class="cards-grid">
+        {% for item in sections %}
+          <article class="card" data-nav-section="{{ item.url }}">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.summary }}</p>
+            <a class="card-link" href="{{ item.url }}">Explore {{ item.title }} →</a>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-nav-section="/">
+  <div class="container">
+    <div class="reveal">
+      <h2>Contact</h2>
+      <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      {% if site.links.length %}
+        <ul class="footer-links">
+          {% for link in site.links %}
+            <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="eyebrow">External profiles — coming soon.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>

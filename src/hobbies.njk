@@ -1,0 +1,24 @@
+---
+layout: layouts/page.njk
+eyebrow: Hobbies
+title: Hobbies
+description: Factorio, crosswords, minesweeper, and other problem-solving games.
+---
+<section id="hobbies-list" data-nav-section="/hobbies/">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Problem-solving games</p>
+      <div class="cards-grid">
+        {% for hobby in hobbies %}
+          <article class="card">
+            <div class="placeholder-block" style="aspect-ratio: 3 / 2; margin-bottom: var(--sp-2);">
+              <span>{{ hobby.filename }} — {{ hobby.dimensions }}</span>
+            </div>
+            <h3>{{ hobby.title }}</h3>
+            <p>{{ hobby.description }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

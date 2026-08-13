@@ -1,0 +1,18 @@
+[
+  {
+    "year": "Freshman",
+    "courses": ["Multivariable Calculus", "Fundamentals of Physics I & II", "Linear Algebra", "Discrete Math", "ODEs"]
+  },
+  {
+    "year": "Sophomore",
+    "courses": ["Analysis I", "Group Theory", "Classical Mechanics", "Vector Analysis", "Lebesgue & Fourier Analysis", "Advanced Linear Algebra", "Galois Theory"]
+  },
+  {
+    "year": "Junior",
+    "courses": ["Complex Analysis", "Graduate Algebra", "Quantum Mechanics", "Linguistic Phylogenetics", "Introduction to Topology", "Graduate Representation Theory", "reading projects"]
+  },
+  {
+    "year": "Senior",
+    "courses": ["Algebraic Topology", "Bayesian Statistics", "Stochastic Processes", "Applied Machine Learning / Causal Inference", "senior thesis on knot theory"]
+  }
+]

@@ -1,0 +1,42 @@
+:root {
+  /* ---- Surface ---- */
+  --c-bg:            #F4EFE5;  /* page background, warm cream */
+  --c-bg-alt:        #EDE6D9;  /* alternating section band */
+  --c-surface:       #E9E1D3;  /* cards, panels, placeholder blocks */
+  --c-border:        #D6C9B4;  /* hairline rules, card edges */
+
+  /* ---- Ink ---- */
+  --c-text:          #3A322A;  /* body copy */
+  --c-text-muted:    #6B6055;  /* captions, metadata, secondary */
+  --c-taupe:         #8C7A63;  /* decorative lines, tiling motif */
+
+  /* ---- Accent ---- */
+  --c-accent:        #A66A4A;  /* terracotta — links, active states */
+  --c-accent-hover:  #8F5738;
+  /* Alternate cool accent, swap in if preferred:
+     --c-accent:       #2E4057;
+     --c-accent-hover: #1F2C3C; */
+
+  /* ---- Type ---- */
+  --f-display: "PT Serif", Georgia, serif;
+  --f-body:    "Source Serif 4", Georgia, serif;
+  --f-label:   "PT Serif", Georgia, serif;
+
+  --fs-xs:   0.8125rem;
+  --fs-sm:   0.9375rem;
+  --fs-base: 1.0625rem;
+  --fs-lg:   1.25rem;
+  --fs-xl:   1.75rem;
+  --fs-2xl:  2.5rem;
+  --fs-3xl:  3.5rem;
+
+  --lh-tight: 1.15;
+  --lh-body:  1.65;
+
+  /* ---- Space ---- */
+  --sp-1: 0.5rem;  --sp-2: 1rem;   --sp-3: 1.5rem;
+  --sp-4: 2.5rem;  --sp-5: 4rem;   --sp-6: 6rem;
+
+  --measure: 68ch;        /* max line length for prose */
+  --container: 1140px;
+}

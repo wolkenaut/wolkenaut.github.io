@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Mathematics",
+    "summary": "Hyperbolic geometry, knot theory, and independent research toward a senior thesis.",
+    "url": "/mathematics/"
+  },
+  {
+    "title": "Astronomy",
+    "summary": "Astrophotography and research on a black hole X-ray binary.",
+    "url": "/astronomy/"
+  },
+  {
+    "title": "Hobbies",
+    "summary": "Factorio, crosswords, minesweeper, and other problem-solving games.",
+    "url": "/hobbies/"
+  }
+]
