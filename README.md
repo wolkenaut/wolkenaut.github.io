@@ -1,2 +1,2 @@
 # wolkenaut.github.io
-James Collier's Personal Site
+Personal site for exploring some of my interests: Mathematics, Astronomy, and more.
