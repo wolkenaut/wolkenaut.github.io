@@ -58,6 +58,7 @@
 
 /* ---- Footer ---- */
 .site-footer {
+  background: color-mix(in srgb, var(--c-bg) 80%, transparent);
   border-top: 1px solid var(--c-border);
   padding-block: var(--sp-4);
 }
@@ -226,10 +227,11 @@
   }
 }
 
-/* ---- Hero checkerboard (signature element) ---- */
-.hero-checkerboard {
-  position: absolute;
+/* ---- Site-wide checkerboard (signature element) ---- */
+.site-checkerboard {
+  position: fixed;
   inset: 0;
+  z-index: -1;
   pointer-events: none;
   background-image: conic-gradient(
     from 90deg,
@@ -239,11 +241,27 @@
     color-mix(in srgb, var(--cb-tone-b) calc(var(--cb-opacity) * 100%), transparent) 270deg
   );
   background-size: var(--cb-tile) var(--cb-tile);
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 40%, transparent 85%);
+  animation: checkerboard-drift 6s linear infinite;
+}
+
+@keyframes checkerboard-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    /* One full tile on each axis = a 45° diagonal loop that seams perfectly. */
+    background-position: var(--cb-tile) var(--cb-tile);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-checkerboard {
+    animation: none;
+  }
 }
 
 @media (max-width: 768px) {
-  .hero-checkerboard {
+  .site-checkerboard {
     --cb-tile: 40px;
   }
 }
