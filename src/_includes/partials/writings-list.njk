@@ -1,0 +1,18 @@
+{% macro writingsList(posts, emptyText) %}
+  {% if posts.length %}
+    <ul class="writings-list">
+      {% for post in posts %}
+        <li>
+          <div>
+            {% set topic = post.data.tags | primaryTag %}
+            {% if topic %}<span class="eyebrow">{{ topic }}</span>{% endif %}
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </div>
+          <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="eyebrow">{{ emptyText }}</p>
+  {% endif %}
+{% endmacro %}

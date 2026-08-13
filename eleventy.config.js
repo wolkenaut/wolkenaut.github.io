@@ -44,6 +44,9 @@ module.exports = function (eleventyConfig) {
     new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(dateObj)
   );
   eleventyConfig.addFilter("isoDate", (dateObj) => dateObj.toISOString().slice(0, 10));
+  eleventyConfig.addFilter("byTag", (posts, tag) => (posts || []).filter((p) => (p.data.tags || []).includes(tag)));
+  eleventyConfig.addFilter("primaryTag", (tags) => (tags || []).find((t) => t !== "writings") || "");
+  eleventyConfig.addFilter("limit", (arr, n) => (arr || []).slice(0, n));
 
   eleventyConfig.amendLibrary("md", (mdLib) => {
     mdLib.use(markdownItKatex, { throwOnError: false });

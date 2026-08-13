@@ -2,6 +2,7 @@
 title: "The Knot Group of the Figure-Eight Knot"
 date: 2025-10-01
 description: "A short note on presenting the fundamental group of the figure-eight knot complement."
+tags: ["math"]
 ---
 This is a placeholder post — a first pass at getting math rendering working
 before the real writing goes here.

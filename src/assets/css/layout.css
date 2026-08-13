@@ -20,18 +20,28 @@ main {
 }
 
 section {
+  position: relative;
   padding-block: var(--sp-6);
   /* Mostly-opaque so body text stays legible over the site-wide checkerboard,
-     with just enough transparency for the pattern to read as present. */
-  background: color-mix(in srgb, var(--c-bg) 80%, transparent);
-}
-
-section:nth-of-type(even) {
+     with just enough transparency for the pattern to read as present. One
+     consistent tone site-wide instead of alternating bands. */
   background: color-mix(in srgb, var(--c-bg-alt) 80%, transparent);
 }
 
+/* Centered divider between sections, replacing alternating background bands
+   as the way sections read as distinct. */
+section + section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96px;
+  height: 1px;
+  background: var(--c-border);
+}
+
 .hero {
-  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -51,7 +61,6 @@ section:nth-of-type(even) {
 
 .page-header {
   padding-block: var(--sp-4) var(--sp-3);
-  border-bottom: 1px solid var(--c-border);
 }
 
 .prose {

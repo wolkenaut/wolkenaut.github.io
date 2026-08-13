@@ -4,6 +4,8 @@ eyebrow: Astronomy
 title: Astronomy
 description: Astrophotography and research on the black hole X-ray binary V4641 Sagittarii.
 ---
+{% from "partials/writings-list.njk" import writingsList %}
+
 <section id="gallery" data-nav-section="/astronomy/">
   <div class="container">
     <div class="reveal">
@@ -34,6 +36,15 @@ description: Astrophotography and research on the black hole X-ray binary V4641 
         optical data initialisation — alignment, dithering, and differential
         aperture photometry.
       </p>
+    </div>
+  </div>
+</section>
+
+<section id="writings" data-nav-section="/astronomy/">
+  <div class="container">
+    <div class="reveal">
+      <h2>Writings</h2>
+      {{ writingsList(collections.writings | byTag("astronomy") | reverse, "Notes on astrophotography and observing — coming soon.") }}
     </div>
   </div>
 </section>

@@ -3,6 +3,8 @@ layout: layouts/base.njk
 title: Home
 description: James Collier — mathematics, astrophotography, and data engineering.
 ---
+{% from "partials/writings-list.njk" import writingsList %}
+
 <section class="hero" id="hero" data-nav-section="/">
   <div class="container hero-content">
     <p class="eyebrow">{{ site.tagline }}</p>
@@ -38,6 +40,15 @@ description: James Collier — mathematics, astrophotography, and data engineeri
           </article>
         {% endfor %}
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="writings" data-nav-section="/">
+  <div class="container">
+    <div class="reveal">
+      <h2>Latest Writings</h2>
+      {{ writingsList(collections.writings | reverse | limit(3), "Essays and notes — coming soon.") }}
     </div>
   </div>
 </section>

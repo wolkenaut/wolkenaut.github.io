@@ -58,7 +58,7 @@
 
 /* ---- Footer ---- */
 .site-footer {
-  background: color-mix(in srgb, var(--c-bg) 80%, transparent);
+  background: color-mix(in srgb, var(--c-bg-alt) 80%, transparent);
   border-top: 1px solid var(--c-border);
   padding-block: var(--sp-4);
 }
@@ -139,6 +139,12 @@
   gap: var(--sp-1) var(--sp-2);
   padding-block: var(--sp-2);
   border-top: 1px solid var(--c-border);
+}
+
+.writings-list li > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
 }
 
 .writings-list a {

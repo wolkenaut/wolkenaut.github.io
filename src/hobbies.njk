@@ -4,6 +4,8 @@ eyebrow: Hobbies
 title: Hobbies
 description: Factorio, crosswords, minesweeper, and other problem-solving games.
 ---
+{% from "partials/writings-list.njk" import writingsList %}
+
 <section id="hobbies-list" data-nav-section="/hobbies/">
   <div class="container">
     <div class="reveal">
@@ -19,6 +21,15 @@ description: Factorio, crosswords, minesweeper, and other problem-solving games.
           </article>
         {% endfor %}
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="writings" data-nav-section="/hobbies/">
+  <div class="container">
+    <div class="reveal">
+      <h2>Writings</h2>
+      {{ writingsList(collections.writings | byTag("hobbies") | reverse, "Notes on whatever puzzle has my attention this week — coming soon.") }}
     </div>
   </div>
 </section>

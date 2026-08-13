@@ -3,18 +3,18 @@
     "title": "Hyperbolic Knots and the Volume Conjecture",
     "advisor": "Ka Ho Wong",
     "term": "Independent study",
-    "description": "Independent study leading toward Ka Ho Wong's senior essay. Studies the volume conjecture relating the Kashaev invariant to the volume of the hyperbolic knot complement, and proves it in the case of the figure-eight knot. Hyperbolic knots are of interest because the hyperbolic volume of their complement is an invariant when finite — it distinguishes knots and is conserved under deformation. Draws on representation theory, complex analysis, hyperbolic geometry, and analysis."
+    "description": "Independent study which led toward my senior thesis with my advisor Ka Ho Wong. Studied the volume conjecture relating the Kashaev invariant to the volume of the hyperbolic knot complement, and proved it in the case of the figure-eight knot. Hyperbolic knots are of interest because the hyperbolic volume of their complement is an invariant when finite. This allows us to distinguish knots, since the hyperbolic volume is conserved under deformation. Draws on representation theory, complex analysis, hyperbolic geometry, and analysis."
   },
   {
     "title": "Mostow's Rigidity Theorem",
     "advisor": "Dongryul Kim",
     "term": "Fall 2024",
-    "description": "Guided project under Dongryul Kim. Built toward a proof of Mostow rigidity for hyperbolic 3-manifolds: given two compact hyperbolic 3-manifolds with isomorphic fundamental group, there exists a unique isometry between them. Covered ergodicity, hyperbolic geometry, geodesic flow, and quasi-geodesics."
+    "description": "Guided project under Dongryul Kim. Built toward a proof of Mostow rigidity for hyperbolic 3-manifolds: given two compact hyperbolic 3-manifolds with isomorphic fundamental group, there exists a unique isometry between them. Explored topics such as ergodicity, hyperbolic geometry, geodesic flow, and quasi-geodesics."
   },
   {
     "title": "Circle Dynamics",
     "advisor": "Ethan Cohen",
     "term": "Spring 2025",
-    "description": "Guided project under Ethan Cohen. Classes of homeomorphisms and diffeomorphisms on S¹; Poincaré classification, rotation number, bounded variation."
+    "description": "Guided project under Ethan Cohen. Explored classes of homeomorphisms and diffeomorphisms on S¹, Poincaré classification, rotation number, and bounded variation."
   }
 ]

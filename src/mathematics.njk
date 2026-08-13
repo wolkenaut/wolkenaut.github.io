@@ -5,6 +5,7 @@ title: Mathematics
 description: Hyperbolic geometry, knot theory, and coursework — James Collier's mathematics page.
 ---
 {% from "partials/project-card.njk" import projectCard %}
+{% from "partials/writings-list.njk" import writingsList %}
 
 <section id="projects" data-nav-section="/mathematics/">
   <div class="container">
@@ -23,19 +24,7 @@ description: Hyperbolic geometry, knot theory, and coursework — James Collier'
   <div class="container">
     <div class="reveal">
       <h2>Writings</h2>
-      {% set writingsList = collections.writings | reverse %}
-      {% if writingsList.length %}
-        <ul class="writings-list">
-          {% for post in writingsList %}
-            <li>
-              <a href="{{ post.url }}">{{ post.data.title }}</a>
-              <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
-            </li>
-          {% endfor %}
-        </ul>
-      {% else %}
-        <p class="eyebrow">Essays on hyperbolic geometry, knot theory, and other things worth writing down — coming soon.</p>
-      {% endif %}
+      {{ writingsList(collections.writings | byTag("math") | reverse, "Essays on hyperbolic geometry, knot theory, and other things worth writing down — coming soon.") }}
     </div>
   </div>
 </section>
