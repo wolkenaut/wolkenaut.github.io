@@ -58,7 +58,7 @@
 
 /* ---- Footer ---- */
 .site-footer {
-  background: color-mix(in srgb, var(--c-bg-alt) 80%, transparent);
+  background: var(--c-bg-alt);
   border-top: 1px solid var(--c-border);
   padding-block: var(--sp-4);
 }

@@ -26,10 +26,10 @@ section,
 .writing {
   position: relative;
   padding-block: var(--sp-6);
-  /* Mostly-opaque so body text stays legible over the site-wide checkerboard,
-     with just enough transparency for the pattern to read as present. One
-     consistent tone site-wide instead of alternating bands. */
-  background: color-mix(in srgb, var(--c-bg-alt) 80%, transparent);
+  /* Fully opaque — content areas sit above the checkerboard entirely, so
+     there's no blend/translucency for raw pattern opacity to bleed through.
+     One consistent tone site-wide instead of alternating bands. */
+  background: var(--c-bg-alt);
 }
 
 /* Centered divider between sections, replacing alternating background bands
@@ -49,6 +49,9 @@ section + section::before {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  /* The one deliberate exception: translucent, so the checkerboard is
+     actually visible somewhere as the signature element it's meant to be. */
+  background: color-mix(in srgb, var(--c-bg-alt) 80%, transparent);
 }
 
 .hero-content {

@@ -38,6 +38,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "node_modules/katex/dist/katex.min.css": "assets/vendor/katex/katex.min.css",
     "node_modules/katex/dist/fonts": "assets/vendor/katex/fonts",
+    ".nojekyll": ".nojekyll",
   });
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   eleventyConfig.addFilter("readableDate", (dateObj) =>
