@@ -1,5 +1,8 @@
 html {
   scroll-behavior: smooth;
+  /* Stop the rubber-band overscroll bounce from revealing the raw,
+     un-diluted checkerboard beyond the page's actual top/bottom edge. */
+  overscroll-behavior-y: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -19,7 +22,8 @@ main {
   display: block;
 }
 
-section {
+section,
+.writing {
   position: relative;
   padding-block: var(--sp-6);
   /* Mostly-opaque so body text stays legible over the site-wide checkerboard,
