@@ -58,15 +58,15 @@
 
 /* ---- Footer ---- */
 .site-footer {
-  background:
-    linear-gradient(
-      to right,
-      transparent calc(50% - var(--container) / 2),
-      var(--c-bg-alt) calc(50% - var(--container) / 2),
-      var(--c-bg-alt) calc(50% + var(--container) / 2),
-      transparent calc(50% + var(--container) / 2)
-    ),
-    rgb(var(--c-taupe-rgb) / 0.3);
+  /* Opaque center stripe only — .margin-band (layout.css) supplies the
+     translucent margin tint for the whole page, footer included. */
+  background: linear-gradient(
+    to right,
+    transparent calc(50% - var(--container) / 2),
+    var(--c-bg-alt) calc(50% - var(--container) / 2),
+    var(--c-bg-alt) calc(50% + var(--container) / 2),
+    transparent calc(50% + var(--container) / 2)
+  );
   border-top: 1px solid var(--c-border);
   padding-block: var(--sp-4);
 }

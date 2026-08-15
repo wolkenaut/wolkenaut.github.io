@@ -21,43 +21,49 @@ html {
 main {
   display: block;
   flex: 1;
-  /* Same two-layer treatment as section/.writing/footer below — critically,
-     NOT a flat opaque color. An opaque <main> background would paint over
-     the checkerboard before any child section's translucent margin
-     background gets composited, so the checkerboard would only ever be
-     visible where main itself has no covering child (i.e. nowhere) — this
-     was the actual bug behind sections' margins showing solid color with
-     no checkerboard, while the footer (a sibling of main, not a
-     descendant) worked correctly the whole time. */
-  background:
-    linear-gradient(
-      to right,
-      transparent calc(50% - var(--container) / 2),
-      var(--c-bg-alt) calc(50% - var(--container) / 2),
-      var(--c-bg-alt) calc(50% + var(--container) / 2),
-      transparent calc(50% + var(--container) / 2)
-    ),
-    rgb(var(--c-taupe-rgb) / 0.3);
+  /* No background — .margin-band (a dedicated, viewport-fixed layer, see
+     below) provides the translucent margin tint for the entire page in one
+     place. main only needs to grow (flex: 1) so the footer stays pinned to
+     the bottom on short pages; it doesn't need to paint anything itself. */
+}
+
+/* Single source of the translucent margin tint for the whole site — fixed
+   to the viewport like the checkerboard, so it's completely independent of
+   page height/flex layout (handles the "short page" gap for free) and of
+   which element structure happens to be on top of it. Content elements
+   (section/.writing/footer) only need to paint their own opaque center
+   stripe and leave their margins transparent; this is the only place that
+   should ever set the translucent taupe tint, to avoid double-compositing
+   two translucent layers on top of each other, which measurably (not just
+   visually) washes out the checkerboard between them. */
+.margin-band {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: rgb(var(--c-taupe-rgb) / 0.3);
 }
 
 section,
 .writing {
   position: relative;
   padding-block: var(--sp-6);
-  /* Two-layer background: an opaque --c-bg-alt stripe exactly as wide as
-     .container (so body text always sits on a fully opaque background —
-     no raw checkerboard behind text, regardless of viewport width), over a
-     translucent, slightly darker tan that fills the rest of the section's
-     full-bleed width — this is where the checkerboard actually shows. */
-  background:
-    linear-gradient(
-      to right,
-      transparent calc(50% - var(--container) / 2),
-      var(--c-bg-alt) calc(50% - var(--container) / 2),
-      var(--c-bg-alt) calc(50% + var(--container) / 2),
-      transparent calc(50% + var(--container) / 2)
-    ),
-    rgb(var(--c-taupe-rgb) / 0.3);
+  /* Opaque --c-bg-alt stripe exactly as wide as .container (so body text
+     always sits on a fully opaque background), transparent everywhere
+     else — deliberately ONE layer, no translucent fallback color here.
+     <main> (the shared ancestor of every section) already supplies that
+     translucent margin tint once; adding a second translucent layer here
+     on top of it would double-composite and wash out the checkerboard
+     between them, even though the overall color still looks "correct" —
+     verify with actual resolved/composited colors, not just that a value
+     is present. Sections rely on <main>'s single layer showing through. */
+  background: linear-gradient(
+    to right,
+    transparent calc(50% - var(--container) / 2),
+    var(--c-bg-alt) calc(50% - var(--container) / 2),
+    var(--c-bg-alt) calc(50% + var(--container) / 2),
+    transparent calc(50% + var(--container) / 2)
+  );
 }
 
 /* Centered divider between sections, replacing alternating background bands
@@ -77,9 +83,10 @@ section + section::before {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  /* The one deliberate exception: translucent, so the checkerboard is
-     actually visible somewhere as the signature element it's meant to be. */
-  background: rgb(var(--c-bg-alt-rgb) / 0.8);
+  /* No background of its own — <main> already supplies one translucent
+     layer for everything inside it. Adding a second one here would
+     double-composite on top of it and wash out the checkerboard, same
+     issue as section/.writing above. */
 }
 
 .hero-content {
