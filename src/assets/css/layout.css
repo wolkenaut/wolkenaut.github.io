@@ -12,6 +12,7 @@ html {
 }
 
 .container {
+  position: relative;
   width: 100%;
   max-width: var(--container);
   margin-inline: auto;
@@ -41,13 +42,13 @@ main {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: rgb(var(--c-taupe-rgb) / 0.15);
+  background: rgb(var(--c-taupe-rgb) / 0.25);
 }
 
 section,
 .writing {
   position: relative;
-  padding-block: var(--sp-6);
+  padding-block: var(--sp-5);
   /* Opaque --c-bg-alt stripe exactly as wide as .container (so body text
      always sits on a fully opaque background), transparent everywhere
      else — deliberately ONE layer, no translucent fallback color here.
@@ -67,14 +68,20 @@ section,
 }
 
 /* Centered divider between sections, replacing alternating background bands
-   as the way sections read as distinct. */
-section + section::before {
+   as the way sections read as distinct. Sized relative to .container (the
+   readable content column), not the full-bleed section — so it scales with
+   the content width instead of being a fixed pixel value. */
+section + section > .container::before {
   content: "";
   position: absolute;
-  top: 0;
+  /* .container sits var(--sp-5) below the section's own top edge (that's
+     the section's padding-block) — pull the divider back up by the same
+     amount so it lands at the section boundary, not flush against the
+     next heading. */
+  top: calc(-1 * var(--sp-5));
   left: 50%;
   transform: translateX(-50%);
-  width: 96px;
+  width: 80%;
   height: 1px;
   background: var(--c-border);
 }
