@@ -22,7 +22,7 @@
 
   {% include "partials/header.njk" %}
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     {{ content | safe }}
   </main>
 
@@ -30,5 +30,6 @@
 
   <script src="/assets/js/nav.js" defer></script>
   <script src="/assets/js/reveal.js" defer></script>
+  <script src="/assets/js/pjax.js" defer></script>
 </body>
 </html>
