@@ -146,3 +146,42 @@ figcaption {
     scroll-behavior: auto !important;
   }
 }
+
+/* ---- Page transitions ----
+   Native cross-document View Transitions (enabled via the
+   <meta name="view-transition"> tag in base.njk) make navigating between
+   pages crossfade instead of hard-cutting — supported today in
+   Chromium-based browsers, and a no-op (normal instant navigation) in
+   anything that doesn't support it, so this is purely progressive
+   enhancement.
+
+   The checkerboard, margin band, header, and footer are given persistent
+   view-transition-name values so the browser treats them as the *same*
+   element across the navigation rather than crossfading two copies of
+   them on top of each other — they simply stay put, visually
+   uninterrupted, while only #main (left on the default root transition)
+   crossfades. This is what makes separate pages read as "the same site
+   chrome, different content" rather than a series of full-page cuts. */
+.site-checkerboard {
+  view-transition-name: site-checkerboard;
+}
+
+.margin-band {
+  view-transition-name: site-margin-band;
+}
+
+.site-header {
+  view-transition-name: site-header;
+}
+
+.site-footer {
+  view-transition-name: site-footer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
