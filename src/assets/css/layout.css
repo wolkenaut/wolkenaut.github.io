@@ -28,10 +28,20 @@ section,
 .writing {
   position: relative;
   padding-block: var(--sp-6);
-  /* Fully opaque — content areas sit above the checkerboard entirely, so
-     there's no blend/translucency for raw pattern opacity to bleed through.
-     One consistent tone site-wide instead of alternating bands. */
-  background: var(--c-bg-alt);
+  /* Two-layer background: an opaque --c-bg-alt stripe exactly as wide as
+     .container (so body text always sits on a fully opaque background —
+     no raw checkerboard behind text, regardless of viewport width), over a
+     translucent, slightly darker tan that fills the rest of the section's
+     full-bleed width — this is where the checkerboard actually shows. */
+  background:
+    linear-gradient(
+      to right,
+      transparent calc(50% - var(--container) / 2),
+      var(--c-bg-alt) calc(50% - var(--container) / 2),
+      var(--c-bg-alt) calc(50% + var(--container) / 2),
+      transparent calc(50% + var(--container) / 2)
+    ),
+    color-mix(in srgb, var(--c-surface) 55%, transparent);
 }
 
 /* Centered divider between sections, replacing alternating background bands

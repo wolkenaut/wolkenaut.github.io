@@ -58,7 +58,15 @@
 
 /* ---- Footer ---- */
 .site-footer {
-  background: var(--c-bg-alt);
+  background:
+    linear-gradient(
+      to right,
+      transparent calc(50% - var(--container) / 2),
+      var(--c-bg-alt) calc(50% - var(--container) / 2),
+      var(--c-bg-alt) calc(50% + var(--container) / 2),
+      transparent calc(50% + var(--container) / 2)
+    ),
+    color-mix(in srgb, var(--c-surface) 55%, transparent);
   border-top: 1px solid var(--c-border);
   padding-block: var(--sp-4);
 }
