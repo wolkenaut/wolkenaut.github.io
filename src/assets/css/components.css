@@ -139,12 +139,15 @@
   color: var(--c-accent-hover);
 }
 
-/* ---- Hero writings panels ---- */
-.hero-writings-label {
+/* ---- Panel title: a heading inside a .panel, with a real divider —
+   independent of whatever content follows (list, paragraph, anything). ---- */
+.panel-title {
   font-family: var(--f-body);
   font-size: var(--fs-lg);
   font-weight: 700;
-  margin-bottom: var(--sp-1);
+  padding-bottom: var(--sp-2);
+  margin-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--c-border);
 }
 
 .hero-writings-group .writings-list {
@@ -171,6 +174,12 @@
   justify-content: space-between;
   gap: var(--sp-1) var(--sp-2);
   padding-block: var(--sp-2);
+}
+
+/* No border on the first item — when nested in a .panel, .panel-title's
+   own divider already marks that boundary; doubling up would draw two
+   lines on top of each other. */
+.writings-list li + li {
   border-top: 1px solid var(--c-border);
 }
 

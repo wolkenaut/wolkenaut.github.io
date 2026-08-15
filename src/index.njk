@@ -13,11 +13,11 @@ description: James Collier — mathematics, astrophotography, and data engineeri
     </div>
     <div class="hero-writings">
       <div class="hero-writings-group panel">
-        <h2 class="hero-writings-label">Academic Writings</h2>
+        <h2 class="panel-title">Academic Writings</h2>
         {{ writingsList(collections.writings | byAnyTag(["math", "astronomy"]) | reverse | pinnedFirst | limit(3), "Coming soon.") }}
       </div>
       <div class="hero-writings-group panel">
-        <h2 class="hero-writings-label">Personal Writings</h2>
+        <h2 class="panel-title">Personal Writings</h2>
         {{ writingsList(collections.writings | byTag("interests") | reverse | limit(3), "Coming soon.") }}
       </div>
     </div>
@@ -26,17 +26,15 @@ description: James Collier — mathematics, astrophotography, and data engineeri
 
 <section id="about" data-nav-section="/">
   <div class="container">
-    <div class="reveal">
-      <h2>About</h2>
-      <div class="panel">
-        <p>
-          Hello! My name is James Collier and I am a Yale alum who graduated in
-          2026. I am studying mathematics, but I am also passionate about
-          astronomy, physics, statistics, and linguistics. I've been an
-          astrophotographer, an astronomy teacher, and currently do work in
-          data engineering.
-        </p>
-      </div>
+    <div class="reveal panel">
+      <h2 class="panel-title">About</h2>
+      <p>
+        Hello! My name is James Collier and I am a Yale alum who graduated in
+        2026. I am studying mathematics, but I am also passionate about
+        astronomy, physics, statistics, and linguistics. I've been an
+        astrophotographer, an astronomy teacher, and currently do work in
+        data engineering.
+      </p>
     </div>
   </div>
 </section>

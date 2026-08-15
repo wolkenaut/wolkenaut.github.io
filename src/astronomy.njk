@@ -8,11 +8,9 @@ description: Astrophotography and research on the black hole X-ray binary V4641 
 
 <section id="writings" class="writings-compact" data-nav-section="/astronomy/">
   <div class="container">
-    <div class="reveal">
-      <h2>Writings</h2>
-      <div class="panel">
-        {{ writingsList(collections.writings | byTag("astronomy") | reverse | limit(3), "Notes on astrophotography and observing — coming soon.") }}
-      </div>
+    <div class="reveal panel">
+      <h2 class="panel-title">Writings</h2>
+      {{ writingsList(collections.writings | byTag("astronomy") | reverse | limit(3), "Notes on astrophotography and observing — coming soon.") }}
     </div>
   </div>
 </section>
@@ -37,18 +35,16 @@ description: Astrophotography and research on the black hole X-ray binary V4641 
 
 <section id="research" data-nav-section="/astronomy/">
   <div class="container">
-    <div class="reveal">
-      <h2>Research</h2>
-      <div class="panel">
-        <p class="eyebrow">STARS Summer Research Program, 2023 — Prof. Charles Bailyn</p>
-        <p>
-          Analysed twenty years of optical and infrared data from the black hole
-          X-ray binary V4641 Sagittarii. Used Python, Excel, Siril, and SAOImage
-          for stellar data analysis; NumPy, AstroPy, and SciPy for timelines and
-          optical data initialisation — alignment, dithering, and differential
-          aperture photometry.
-        </p>
-      </div>
+    <div class="reveal panel">
+      <h2 class="panel-title">Research</h2>
+      <p class="eyebrow">STARS Summer Research Program, 2023 — Prof. Charles Bailyn</p>
+      <p>
+        Analysed twenty years of optical and infrared data from the black hole
+        X-ray binary V4641 Sagittarii. Used Python, Excel, Siril, and SAOImage
+        for stellar data analysis; NumPy, AstroPy, and SciPy for timelines and
+        optical data initialisation — alignment, dithering, and differential
+        aperture photometry.
+      </p>
     </div>
   </div>
 </section>
