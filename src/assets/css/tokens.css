@@ -10,6 +10,14 @@
   --c-text-muted:    #6B6055;  /* captions, metadata, secondary */
   --c-taupe:         #8C7A63;  /* decorative lines, tiling motif */
 
+  /* Space-separated RGB triplets of the above, for rgb(var(...) / alpha)
+     translucency — avoids color-mix(), which has had real rendering gaps
+     inside gradient functions on some browsers even when computed-style
+     checks report the "correct" resolved value. */
+  --c-bg-alt-rgb:    237 230 217;
+  --c-border-rgb:    214 201 180;
+  --c-taupe-rgb:     140 122  99;
+
   /* ---- Accent ---- */
   --c-accent:        #A66A4A;  /* terracotta — links, active states */
   --c-accent-hover:  #8F5738;

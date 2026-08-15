@@ -21,7 +21,23 @@ html {
 main {
   display: block;
   flex: 1;
-  background: var(--c-bg-alt);
+  /* Same two-layer treatment as section/.writing/footer below — critically,
+     NOT a flat opaque color. An opaque <main> background would paint over
+     the checkerboard before any child section's translucent margin
+     background gets composited, so the checkerboard would only ever be
+     visible where main itself has no covering child (i.e. nowhere) — this
+     was the actual bug behind sections' margins showing solid color with
+     no checkerboard, while the footer (a sibling of main, not a
+     descendant) worked correctly the whole time. */
+  background:
+    linear-gradient(
+      to right,
+      transparent calc(50% - var(--container) / 2),
+      var(--c-bg-alt) calc(50% - var(--container) / 2),
+      var(--c-bg-alt) calc(50% + var(--container) / 2),
+      transparent calc(50% + var(--container) / 2)
+    ),
+    rgb(var(--c-taupe-rgb) / 0.3);
 }
 
 section,
@@ -41,7 +57,7 @@ section,
       var(--c-bg-alt) calc(50% + var(--container) / 2),
       transparent calc(50% + var(--container) / 2)
     ),
-    color-mix(in srgb, var(--c-taupe) 30%, transparent);
+    rgb(var(--c-taupe-rgb) / 0.3);
 }
 
 /* Centered divider between sections, replacing alternating background bands
@@ -63,7 +79,7 @@ section + section::before {
   align-items: center;
   /* The one deliberate exception: translucent, so the checkerboard is
      actually visible somewhere as the signature element it's meant to be. */
-  background: color-mix(in srgb, var(--c-bg-alt) 80%, transparent);
+  background: rgb(var(--c-bg-alt-rgb) / 0.8);
 }
 
 .hero-content {
