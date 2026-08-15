@@ -38,6 +38,7 @@
   }
 
   let inFlight = 0;
+  let loadedPathname = window.location.pathname;
 
   async function swapContent(url, push) {
     const requestId = ++inFlight;
@@ -63,50 +64,34 @@
       return;
     }
 
-    const applySwap = () => {
-      document.title = doc.title;
+    document.title = doc.title;
 
-      const newDesc = doc.querySelector('meta[name="description"]');
-      const curDesc = document.querySelector('meta[name="description"]');
-      if (newDesc && curDesc) curDesc.setAttribute("content", newDesc.getAttribute("content") || "");
+    const newDesc = doc.querySelector('meta[name="description"]');
+    const curDesc = document.querySelector('meta[name="description"]');
+    if (newDesc && curDesc) curDesc.setAttribute("content", newDesc.getAttribute("content") || "");
 
-      main.innerHTML = newMain.innerHTML;
-      updateActiveNavForUrl(url.pathname);
+    main.innerHTML = newMain.innerHTML;
+    updateActiveNavForUrl(url.pathname);
+    loadedPathname = url.pathname;
 
-      if (window.SitePanels) window.SitePanels.init();
-      if (window.SiteReveal) window.SiteReveal.init();
-    };
-
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!reduceMotion && document.startViewTransition) {
-      // The transition can be aborted for reasons outside our control (a
-      // second one starting before the first settles, a browser declining
-      // to run it) — the update callback still runs either way, so the
-      // content swap itself is unaffected. Swallow rejections on every
-      // promise the transition exposes rather than letting them surface as
-      // unhandled rejections.
-      const transition = document.startViewTransition(applySwap);
-      Promise.resolve(transition.ready).catch(() => {});
-      Promise.resolve(transition.updateCallbackDone).catch(() => {});
-      Promise.resolve(transition.finished).catch(() => {});
-    } else {
-      applySwap();
-    }
-
+    // Must happen before SitePanels.init() below: it decides which panel to
+    // show by reading location.hash, which only reflects the target URL
+    // once pushState has actually updated it. Read too early and it sees
+    // the *previous* page's hash and defaults to "home" every time.
     if (push) {
       window.history.pushState({ pjax: true }, "", url.href);
     }
 
-    if (url.hash) {
-      const target = document.getElementById(url.hash.slice(1));
-      if (target) target.scrollIntoView();
-    } else {
-      window.scrollTo(0, 0);
-    }
+    // SitePanels.init() only finds panels (and handles its own scroll/focus)
+    // when the fetched page is the index — for a plain page like a writing,
+    // it's a no-op and we fall back to a straightforward scroll + focus here.
+    const hasPanels = !!(window.SitePanels && window.SitePanels.init());
 
-    // Move focus to the new content so keyboard/screen-reader users get the
-    // same "landed on new content" signal a full navigation would give.
-    main.focus();
+    if (!hasPanels) {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      main.focus({ preventScroll: true });
+      if (window.SiteReveal) window.SiteReveal.init();
+    }
   }
 
   document.addEventListener("click", (event) => {
@@ -126,6 +111,13 @@
   });
 
   window.addEventListener("popstate", () => {
-    swapContent(new URL(window.location.href), false);
+    // Back/forward between panel hashes (e.g. #mathematics <-> #astronomy)
+    // fires popstate AND hashchange for the same traversal — panels.js's own
+    // hashchange listener already resyncs instantly with no network
+    // involved. Only fall through to a real fetch+swap when the pathname
+    // itself changed (e.g. returning here from a standalone writing page).
+    const url = new URL(window.location.href);
+    if (url.pathname === loadedPathname) return;
+    swapContent(url, false);
   });
 })();

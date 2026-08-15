@@ -22,12 +22,15 @@
 
   function applyActivePanel() {
     const panels = document.querySelectorAll(".topic-panel[data-panel]");
-    if (!panels.length) return;
+    if (!panels.length) return false;
 
     const active = panelNameFromHash();
+    let activeEl = null;
 
     panels.forEach((panel) => {
-      panel.hidden = panel.dataset.panel !== active;
+      const isActive = panel.dataset.panel === active;
+      panel.hidden = !isActive;
+      if (isActive) activeEl = panel;
     });
 
     document.querySelectorAll("[data-panel-link]").forEach((link) => {
@@ -40,12 +43,17 @@
 
     document.title = (TITLES[active] || "Home") + titleSuffix;
 
-    window.scrollTo(0, 0);
+    // Two-arg scrollTo still honors CSS scroll-behavior: smooth, which would
+    // race against the focus() call below (each triggers its own scroll) —
+    // force both to resolve instantly instead.
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 
     const main = document.getElementById("main");
-    if (main) main.focus();
+    if (main) main.focus({ preventScroll: true });
 
-    if (window.SiteReveal) window.SiteReveal.init();
+    if (window.SiteReveal) window.SiteReveal.init(activeEl);
+
+    return true;
   }
 
   window.SitePanels = { init: applyActivePanel };
