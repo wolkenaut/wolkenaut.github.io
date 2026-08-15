@@ -73,8 +73,8 @@
       main.innerHTML = newMain.innerHTML;
       updateActiveNavForUrl(url.pathname);
 
+      if (window.SitePanels) window.SitePanels.init();
       if (window.SiteReveal) window.SiteReveal.init();
-      if (window.SiteNav) window.SiteNav.init();
     };
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

@@ -148,20 +148,18 @@ figcaption {
 }
 
 /* ---- Page transitions ----
-   Native cross-document View Transitions (enabled via the
-   <meta name="view-transition"> tag in base.njk) make navigating between
-   pages crossfade instead of hard-cutting — supported today in
-   Chromium-based browsers, and a no-op (normal instant navigation) in
-   anything that doesn't support it, so this is purely progressive
-   enhancement.
-
-   The checkerboard, margin band, header, and footer are given persistent
-   view-transition-name values so the browser treats them as the *same*
-   element across the navigation rather than crossfading two copies of
-   them on top of each other — they simply stay put, visually
-   uninterrupted, while only #main (left on the default root transition)
-   crossfades. This is what makes separate pages read as "the same site
-   chrome, different content" rather than a series of full-page cuts. */
+   Mathematics/Astronomy/Interests are same-document panels toggled by
+   panels.js — no navigation involved, so nothing here applies to them.
+   These view-transition-name values exist for pjax.js, which still does a
+   real content fetch when moving between this page and a standalone
+   writing (essay) page: it calls document.startViewTransition() itself
+   (same-document API, not the cross-document/meta-tag one) around the
+   #main swap. Naming the checkerboard, margin band, header, and footer
+   keeps the browser treating them as the *same* persistent element during
+   that transition instead of crossfading two copies of them on top of
+   each other — they simply stay put while only #main crossfades. Support
+   is Chromium-only; pjax.js already falls back to an instant swap
+   everywhere else, so this is purely progressive enhancement. */
 .site-checkerboard {
   view-transition-name: site-checkerboard;
 }

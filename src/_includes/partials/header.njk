@@ -1,11 +1,11 @@
 <header class="site-header">
   <div class="container">
-    <a class="site-title" href="/">{{ site.name }}</a>
+    <a class="site-title" href="{{ '/' if page.url != '/' else '#home' }}">{{ site.name }}</a>
     <nav class="site-nav" aria-label="Primary">
-      <a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a>
-      <a href="/mathematics/"{% if page.url == "/mathematics/" %} aria-current="page"{% endif %}>Mathematics</a>
-      <a href="/astronomy/"{% if page.url == "/astronomy/" %} aria-current="page"{% endif %}>Astronomy</a>
-      <a href="/interests/"{% if page.url == "/interests/" %} aria-current="page"{% endif %}>Interests</a>
+      <a href="{{ '/#home' if page.url != '/' else '#home' }}" data-panel-link="home">Home</a>
+      <a href="{{ '/#mathematics' if page.url != '/' else '#mathematics' }}" data-panel-link="mathematics">Mathematics</a>
+      <a href="{{ '/#astronomy' if page.url != '/' else '#astronomy' }}" data-panel-link="astronomy">Astronomy</a>
+      <a href="{{ '/#interests' if page.url != '/' else '#interests' }}" data-panel-link="interests">Interests</a>
     </nav>
   </div>
 </header>

@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="view-transition" content="same-origin">
   <title>{{ title }}{% if title %} — {% endif %}{{ site.name }}</title>
   <meta name="description" content="{{ description }}">
 
@@ -28,8 +27,8 @@
 
   {% include "partials/footer.njk" %}
 
-  <script src="/assets/js/nav.js" defer></script>
   <script src="/assets/js/reveal.js" defer></script>
+  <script src="/assets/js/panels.js" defer></script>
   <script src="/assets/js/pjax.js" defer></script>
 </body>
 </html>

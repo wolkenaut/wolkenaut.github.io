@@ -4,72 +4,192 @@ title: Home
 description: James Collier — mathematics, astrophotography, and data engineering.
 ---
 {% from "partials/writings-list.njk" import writingsList %}
+{% from "partials/project-card.njk" import projectCard %}
 
-<section class="hero" id="hero" data-nav-section="/">
-  <div class="container hero-content hero-grid">
-    <div class="hero-intro">
-      <p class="eyebrow">{{ site.tagline }}</p>
-      <h1>{{ site.name }}</h1>
-    </div>
-    <div class="hero-writings">
-      <div class="hero-writings-group panel">
-        <h2 class="panel-title">Academic Writings</h2>
-        {{ writingsList(collections.writings | byAnyTag(["math", "astronomy"]) | reverse | pinnedFirst | limit(3), "Coming soon.") }}
+<div class="topic-panel" data-panel="home">
+  <section class="hero" id="hero">
+    <div class="container hero-content hero-grid">
+      <div class="hero-intro">
+        <p class="eyebrow">{{ site.tagline }}</p>
+        <h1>{{ site.name }}</h1>
       </div>
-      <div class="hero-writings-group panel">
-        <h2 class="panel-title">Personal Writings</h2>
-        {{ writingsList(collections.writings | byTag("interests") | reverse | limit(3), "Coming soon.") }}
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="about" data-nav-section="/">
-  <div class="container">
-    <div class="reveal panel">
-      <h2 class="panel-title">About</h2>
-      <p>
-        Hello! My name is James Collier and I am a Yale alum who graduated in
-        2026. I am studying mathematics, but I am also passionate about
-        astronomy, physics, statistics, and linguistics. I've been an
-        astrophotographer, an astronomy teacher, and currently do work in
-        data engineering.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="explore" data-nav-section="/">
-  <div class="container">
-    <div class="reveal">
-      <h2>Explore</h2>
-      <div class="cards-grid">
-        {% for item in sections %}
-          <article class="card" data-nav-section="{{ item.url }}">
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.summary }}</p>
-            <a class="card-link" href="{{ item.url }}">Explore {{ item.title }} →</a>
-          </article>
-        {% endfor %}
+      <div class="hero-writings">
+        <div class="hero-writings-group panel">
+          <h2 class="panel-title">Academic Writings</h2>
+          {{ writingsList(collections.writings | byAnyTag(["math", "astronomy"]) | reverse | pinnedFirst | limit(3), "Coming soon.") }}
+        </div>
+        <div class="hero-writings-group panel">
+          <h2 class="panel-title">Personal Writings</h2>
+          {{ writingsList(collections.writings | byTag("interests") | reverse | limit(3), "Coming soon.") }}
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="contact" data-nav-section="/">
-  <div class="container">
-    <div class="reveal">
-      <h2>Contact</h2>
-      <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-      {% if site.links.length %}
-        <ul class="footer-links">
-          {% for link in site.links %}
-            <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+  <section id="about">
+    <div class="container">
+      <div class="reveal panel">
+        <h2 class="panel-title">About</h2>
+        <p>
+          Hello! My name is James Collier and I am a Yale alum who graduated in
+          2026. I am studying mathematics, but I am also passionate about
+          astronomy, physics, statistics, and linguistics. I've been an
+          astrophotographer, an astronomy teacher, and currently do work in
+          data engineering.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="reveal">
+        <h2>Contact</h2>
+        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        {% if site.links.length %}
+          <ul class="footer-links">
+            {% for link in site.links %}
+              <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="eyebrow">External profiles — coming soon.</p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="topic-panel" data-panel="mathematics" hidden>
+  <section class="page-header">
+    <div class="container">
+      <p class="eyebrow">Mathematics</p>
+      <h2>Hyperbolic geometry, knot theory, and independent research toward a senior thesis.</h2>
+    </div>
+  </section>
+
+  <section id="mathematics-writings" class="writings-compact">
+    <div class="container">
+      <div class="reveal panel">
+        <h3 class="panel-title">Writings</h3>
+        {{ writingsList(collections.writings | byTag("math") | reverse | limit(3), "Essays on hyperbolic geometry, knot theory, and other things worth writing down — coming soon.") }}
+      </div>
+    </div>
+  </section>
+
+  <section id="mathematics-projects">
+    <div class="container">
+      <div class="reveal">
+        <h3>Projects</h3>
+        <div class="cards-grid">
+          {% for project in mathProjects %}
+            {{ projectCard(project) }}
           {% endfor %}
-        </ul>
-      {% else %}
-        <p class="eyebrow">External profiles — coming soon.</p>
-      {% endif %}
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section id="mathematics-coursework">
+    <div class="container">
+      <div class="reveal">
+        <h3>Coursework</h3>
+        <dl class="coursework">
+          {% for group in coursework %}
+            <dt>{{ group.year }}</dt>
+            <dd>{{ group.courses | join(", ") }}</dd>
+          {% endfor %}
+        </dl>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="topic-panel" data-panel="astronomy" hidden>
+  <section class="page-header">
+    <div class="container">
+      <p class="eyebrow">Astronomy</p>
+      <h2>Astrophotography and research on the black hole X-ray binary V4641 Sagittarii.</h2>
+    </div>
+  </section>
+
+  <section id="astronomy-writings" class="writings-compact">
+    <div class="container">
+      <div class="reveal panel">
+        <h3 class="panel-title">Writings</h3>
+        {{ writingsList(collections.writings | byTag("astronomy") | reverse | limit(3), "Notes on astrophotography and observing — coming soon.") }}
+      </div>
+    </div>
+  </section>
+
+  <section id="astronomy-gallery">
+    <div class="container">
+      <div class="reveal">
+        <h3>Gallery</h3>
+        <div class="gallery-grid">
+          {% for item in gallery %}
+            <figure class="gallery-item">
+              <div class="placeholder-block" style="aspect-ratio: 3 / 2;">
+                <span>{{ item.filename }} — {{ item.dimensions }}</span>
+              </div>
+              <figcaption>{{ item.title }}</figcaption>
+            </figure>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="astronomy-research">
+    <div class="container">
+      <div class="reveal panel">
+        <h3 class="panel-title">Research</h3>
+        <p class="eyebrow">STARS Summer Research Program, 2023 — Prof. Charles Bailyn</p>
+        <p>
+          Analysed twenty years of optical and infrared data from the black hole
+          X-ray binary V4641 Sagittarii. Used Python, Excel, Siril, and SAOImage
+          for stellar data analysis; NumPy, AstroPy, and SciPy for timelines and
+          optical data initialisation — alignment, dithering, and differential
+          aperture photometry.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="topic-panel" data-panel="interests" hidden>
+  <section class="page-header">
+    <div class="container">
+      <p class="eyebrow">Interests</p>
+      <h2>Factorio, crosswords, minesweeper, and other problem-solving games.</h2>
+    </div>
+  </section>
+
+  <section id="interests-writings" class="writings-compact">
+    <div class="container">
+      <div class="reveal panel">
+        <h3 class="panel-title">Writings</h3>
+        {{ writingsList(collections.writings | byTag("interests") | reverse | limit(3), "Notes on whatever puzzle has my attention this week — coming soon.") }}
+      </div>
+    </div>
+  </section>
+
+  <section id="interests-list">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow">Problem-solving games</p>
+        <div class="cards-grid">
+          {% for interest in interests %}
+            <article class="card">
+              <div class="placeholder-block" style="aspect-ratio: 3 / 2; margin-bottom: var(--sp-2);">
+                <span>{{ interest.filename }} — {{ interest.dimensions }}</span>
+              </div>
+              <h3>{{ interest.title }}</h3>
+              <p>{{ interest.description }}</p>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
