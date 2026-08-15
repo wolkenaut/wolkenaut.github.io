@@ -41,7 +41,7 @@ main {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: rgb(var(--c-taupe-rgb) / 0.3);
+  background: rgb(var(--c-taupe-rgb) / 0.15);
 }
 
 section,
@@ -80,7 +80,7 @@ section + section::before {
 }
 
 .hero {
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   /* No background of its own — <main> already supplies one translucent
