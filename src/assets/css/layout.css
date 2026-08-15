@@ -103,6 +103,15 @@ section {
   flex: 1;
 }
 
+/* An author display value beats the browser's built-in [hidden] rule
+   regardless of selector specificity, so without this override, the
+   display: flex above makes panels.js's hidden attribute stop hiding
+   anything — all four panels render stacked at once instead of one at a
+   time. */
+.topic-panel[hidden] {
+  display: none;
+}
+
 .topic-panel > section:last-child {
   flex: 1;
 }
