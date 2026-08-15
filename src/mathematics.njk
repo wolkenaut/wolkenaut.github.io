@@ -7,6 +7,17 @@ description: Hyperbolic geometry, knot theory, and coursework — James Collier'
 {% from "partials/project-card.njk" import projectCard %}
 {% from "partials/writings-list.njk" import writingsList %}
 
+<section id="writings" class="writings-compact" data-nav-section="/mathematics/">
+  <div class="container">
+    <div class="reveal">
+      <h2>Writings</h2>
+      <div class="panel">
+        {{ writingsList(collections.writings | byTag("math") | reverse | limit(3), "Essays on hyperbolic geometry, knot theory, and other things worth writing down — coming soon.") }}
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="projects" data-nav-section="/mathematics/">
   <div class="container">
     <div class="reveal">
@@ -16,15 +27,6 @@ description: Hyperbolic geometry, knot theory, and coursework — James Collier'
           {{ projectCard(project) }}
         {% endfor %}
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="writings" data-nav-section="/mathematics/">
-  <div class="container">
-    <div class="reveal">
-      <h2>Writings</h2>
-      {{ writingsList(collections.writings | byTag("math") | reverse, "Essays on hyperbolic geometry, knot theory, and other things worth writing down — coming soon.") }}
     </div>
   </div>
 </section>

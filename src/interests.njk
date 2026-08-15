@@ -1,0 +1,37 @@
+---
+layout: layouts/page.njk
+eyebrow: Interests
+title: Interests
+description: Factorio, crosswords, minesweeper, and other problem-solving games.
+---
+{% from "partials/writings-list.njk" import writingsList %}
+
+<section id="writings" class="writings-compact" data-nav-section="/interests/">
+  <div class="container">
+    <div class="reveal">
+      <h2>Writings</h2>
+      <div class="panel">
+        {{ writingsList(collections.writings | byTag("interests") | reverse | limit(3), "Notes on whatever puzzle has my attention this week — coming soon.") }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="interests-list" data-nav-section="/interests/">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Problem-solving games</p>
+      <div class="cards-grid">
+        {% for interest in interests %}
+          <article class="card">
+            <div class="placeholder-block" style="aspect-ratio: 3 / 2; margin-bottom: var(--sp-2);">
+              <span>{{ interest.filename }} — {{ interest.dimensions }}</span>
+            </div>
+            <h3>{{ interest.title }}</h3>
+            <p>{{ interest.description }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

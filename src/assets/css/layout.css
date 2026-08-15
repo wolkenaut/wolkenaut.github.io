@@ -92,6 +92,16 @@ section + section::before {
   padding-block: var(--sp-4) var(--sp-3);
 }
 
+/* Compact writings teaser at the top of each topic page — smaller than a
+   full section, just enough to surface the most recent posts right away. */
+.writings-compact {
+  padding-block: var(--sp-4);
+}
+
+.writings-compact h2 {
+  font-size: var(--fs-xl);
+}
+
 .prose {
   margin-top: var(--sp-3);
 }

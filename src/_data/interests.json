@@ -2,25 +2,25 @@
   {
     "title": "Factorio",
     "description": "Logistics, resource management, factory building.",
-    "filename": "hobbies/factorio.jpg",
+    "filename": "interests/factorio.jpg",
     "dimensions": "1200×800"
   },
   {
     "title": "NYT Crossword",
     "description": "Started in April, daily ever since.",
-    "filename": "hobbies/crossword.jpg",
+    "filename": "interests/crossword.jpg",
     "dimensions": "1200×800"
   },
   {
     "title": "Minesweeper",
     "description": "Logic on a grid; patterns accumulate with practice, and it rewards speedrunning.",
-    "filename": "hobbies/minesweeper.jpg",
+    "filename": "interests/minesweeper.jpg",
     "dimensions": "1200×800"
   },
   {
     "title": "Sudoku Variants",
     "description": "Many variants, each with its own solving techniques.",
-    "filename": "hobbies/sudoku.jpg",
+    "filename": "interests/sudoku.jpg",
     "dimensions": "1200×800"
   }
 ]

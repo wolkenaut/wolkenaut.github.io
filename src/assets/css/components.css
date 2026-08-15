@@ -109,6 +109,23 @@
   margin-bottom: var(--sp-2);
 }
 
+/* ---- Panel: same box treatment as .card, but no child-selector text
+   recoloring — for wrapping prose/lists (About, Writings, Research) where
+   .card's muted-paragraph rule would be wrong. ---- */
+.panel {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  padding: var(--sp-3);
+}
+
+.panel p {
+  margin-bottom: var(--sp-1);
+}
+
+.panel p:last-child {
+  margin-bottom: 0;
+}
+
 .card .card-link {
   font-family: var(--f-label);
   font-weight: 400;
