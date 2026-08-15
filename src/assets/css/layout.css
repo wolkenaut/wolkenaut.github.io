@@ -53,15 +53,25 @@ section,
 .writing {
   position: relative;
   padding-block: var(--sp-5);
-  /* Opaque --c-bg-alt stripe exactly as wide as .container (so body text
-     always sits on a fully opaque background), transparent everywhere
-     else — deliberately ONE layer, no translucent fallback color here.
-     <main> (the shared ancestor of every section) already supplies that
-     translucent margin tint once; adding a second translucent layer here
-     on top of it would double-composite and wash out the checkerboard
-     between them, even though the overall color still looks "correct" —
-     verify with actual resolved/composited colors, not just that a value
-     is present. Sections rely on <main>'s single layer showing through. */
+}
+
+/* --c-bg-alt stripe at 0.9 opacity, exactly as wide as .container,
+   transparent everywhere else. Deliberately translucent (not fully
+   opaque) so the checkerboard/margin-band shows through faintly even
+   within the content column, not just the margins — kept close to 1 so
+   body text still reads cleanly against it. .writing (standalone essay
+   pages) is excluded and stays fully opaque, below. */
+section {
+  background: linear-gradient(
+    to right,
+    transparent calc(50% - var(--container) / 2),
+    rgb(var(--c-bg-alt-rgb) / 0.9) calc(50% - var(--container) / 2),
+    rgb(var(--c-bg-alt-rgb) / 0.9) calc(50% + var(--container) / 2),
+    transparent calc(50% + var(--container) / 2)
+  );
+}
+
+.writing {
   background: linear-gradient(
     to right,
     transparent calc(50% - var(--container) / 2),
