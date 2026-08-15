@@ -81,11 +81,15 @@ section {
   /* Stretches to fill main's leftover height on a short post, so its own
      background (above) reaches the footer instead of leaving a gap. */
   flex: 1;
+  /* --c-surface (one step darker than section's --c-bg-alt, same shade
+     already used for cards/panels) so a writing page reads as visually
+     distinct from the sections it's linked from, not just "the same tone,
+     fully opaque instead of 0.9". */
   background: linear-gradient(
     to right,
     transparent calc(50% - var(--container) / 2),
-    var(--c-bg-alt) calc(50% - var(--container) / 2),
-    var(--c-bg-alt) calc(50% + var(--container) / 2),
+    var(--c-surface) calc(50% - var(--container) / 2),
+    var(--c-surface) calc(50% + var(--container) / 2),
     transparent calc(50% + var(--container) / 2)
   );
 }
