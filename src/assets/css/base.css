@@ -60,6 +60,11 @@ html {
 
 body {
   min-height: 100vh;
+  /* Sticky footer: main grows to fill any leftover space so its opaque
+     background (not the raw checkerboard) always reaches the viewport
+     edges, even when a page's content is shorter than the window. */
+  display: flex;
+  flex-direction: column;
 }
 
 h1, h2 {

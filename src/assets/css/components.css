@@ -122,6 +122,22 @@
   color: var(--c-accent-hover);
 }
 
+/* ---- Hero writings panels ---- */
+.hero-writings-label {
+  font-family: var(--f-body);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  margin-bottom: var(--sp-1);
+}
+
+.hero-writings-group .writings-list {
+  margin-top: 0;
+}
+
+.hero-writings-group .writings-list a {
+  font-size: var(--fs-base);
+}
+
 /* ---- Writings list ---- */
 .writings-list {
   list-style: none;

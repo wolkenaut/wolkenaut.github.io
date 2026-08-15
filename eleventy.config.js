@@ -46,8 +46,16 @@ module.exports = function (eleventyConfig) {
   );
   eleventyConfig.addFilter("isoDate", (dateObj) => dateObj.toISOString().slice(0, 10));
   eleventyConfig.addFilter("byTag", (posts, tag) => (posts || []).filter((p) => (p.data.tags || []).includes(tag)));
+  eleventyConfig.addFilter("byAnyTag", (posts, tags) => (posts || []).filter((p) => (p.data.tags || []).some((t) => tags.includes(t))));
   eleventyConfig.addFilter("primaryTag", (tags) => (tags || []).find((t) => t !== "writings") || "");
   eleventyConfig.addFilter("limit", (arr, n) => (arr || []).slice(0, n));
+  // Pinned posts (front matter `pinned: true`) float to the top; everything
+  // else keeps whatever order it was already in (i.e. sort by date first).
+  eleventyConfig.addFilter("pinnedFirst", (posts) => {
+    const pinned = (posts || []).filter((p) => p.data.pinned);
+    const rest = (posts || []).filter((p) => !p.data.pinned);
+    return [...pinned, ...rest];
+  });
 
   eleventyConfig.amendLibrary("md", (mdLib) => {
     mdLib.use(markdownItKatex, { throwOnError: false });
