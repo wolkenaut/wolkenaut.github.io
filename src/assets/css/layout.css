@@ -41,7 +41,7 @@ section,
       var(--c-bg-alt) calc(50% + var(--container) / 2),
       transparent calc(50% + var(--container) / 2)
     ),
-    color-mix(in srgb, var(--c-surface) 55%, transparent);
+    color-mix(in srgb, var(--c-taupe) 30%, transparent);
 }
 
 /* Centered divider between sections, replacing alternating background bands
