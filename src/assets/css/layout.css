@@ -20,12 +20,18 @@ html {
 }
 
 main {
-  display: block;
+  display: flex;
+  flex-direction: column;
   flex: 1;
   /* No background — .margin-band (a dedicated, viewport-fixed layer, see
      below) provides the translucent margin tint for the entire page in one
      place. main only needs to grow (flex: 1) so the footer stays pinned to
-     the bottom on short pages; it doesn't need to paint anything itself. */
+     the bottom on short pages; it doesn't need to paint anything itself.
+     display: flex here (rather than block) is what lets its child — the
+     active .topic-panel, or .writing on an essay page — grow to fill that
+     space in turn, below, so a short page's own backgrounds reach all the
+     way down instead of leaving a gap of raw checkerboard above the
+     footer. */
 }
 
 /* Single source of the translucent margin tint for the whole site — fixed
@@ -72,6 +78,9 @@ section {
 }
 
 .writing {
+  /* Stretches to fill main's leftover height on a short post, so its own
+     background (above) reaches the footer instead of leaving a gap. */
+  flex: 1;
   background: linear-gradient(
     to right,
     transparent calc(50% - var(--container) / 2),
@@ -79,6 +88,19 @@ section {
     var(--c-bg-alt) calc(50% + var(--container) / 2),
     transparent calc(50% + var(--container) / 2)
   );
+}
+
+/* Same idea for the index page: main's visible child is whichever
+   .topic-panel isn't [hidden], and its own last section (the one with a
+   background) is what needs to stretch to close the same kind of gap. */
+.topic-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.topic-panel > section:last-child {
+  flex: 1;
 }
 
 /* Dark taupe outline framing each section's own readable content column —
