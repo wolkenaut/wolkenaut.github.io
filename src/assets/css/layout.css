@@ -42,6 +42,10 @@ main {
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  /* See the matching comment on .site-checkerboard in components.css —
+     forces its own compositor layer so it doesn't flash white when <main>
+     reflows. */
+  will-change: transform;
   background: rgb(var(--c-taupe-rgb) / 0.3);
 }
 

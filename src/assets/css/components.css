@@ -289,6 +289,12 @@
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  /* Promotes this to its own GPU compositor layer, independent of <main>.
+     Without it, a big reflow in <main> (e.g. panels.js swapping which
+     topic-panel is visible) can force this negative-z-index layer to be
+     repainted in lockstep with it — since it paints separately/behind,
+     that shows up as a flash of the raw page background for a frame. */
+  will-change: transform;
   background-image: conic-gradient(
     from 90deg,
     rgb(var(--cb-tone-a-rgb) / var(--cb-opacity)) 90deg,
