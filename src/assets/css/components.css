@@ -105,7 +105,7 @@
 }
 
 .card {
-  background: var(--c-surface);
+  background: rgb(var(--c-surface-rgb) / 0.85);
   border: 1px solid var(--c-accent);
   padding: var(--sp-3);
   transition: border-color 200ms ease;
@@ -129,7 +129,7 @@
    recoloring — for wrapping prose/lists (About, Writings, Research) where
    .card's muted-paragraph rule would be wrong. ---- */
 .panel {
-  background: var(--c-surface);
+  background: rgb(var(--c-surface-rgb) / 0.85);
   border: 1px solid var(--c-accent);
   padding: var(--sp-3);
 }
@@ -249,7 +249,7 @@
 
 /* ---- Placeholder image blocks ---- */
 .placeholder-block {
-  background: var(--c-surface);
+  background: rgb(var(--c-surface-rgb) / 0.85);
   border: 1px dashed var(--c-accent);
   display: flex;
   align-items: center;
