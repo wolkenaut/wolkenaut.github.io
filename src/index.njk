@@ -193,3 +193,39 @@ description: James Collier — mathematics, astrophotography, and data engineeri
     </div>
   </section>
 </div>
+
+<div class="topic-panel" id="writings" data-panel="writings" hidden>
+  <section class="page-header">
+    <div class="container">
+      <p class="eyebrow">Writings</p>
+      <h2>All essays and notes, grouped by subject.</h2>
+    </div>
+  </section>
+
+  <section id="writings-math">
+    <div class="container">
+      <div class="reveal panel">
+        <h3 class="panel-title">Mathematics</h3>
+        {{ writingsList(collections.writings | byTag("math") | reverse, "Coming soon.") }}
+      </div>
+    </div>
+  </section>
+
+  <section id="writings-astronomy">
+    <div class="container">
+      <div class="reveal panel">
+        <h3 class="panel-title">Astronomy</h3>
+        {{ writingsList(collections.writings | byTag("astronomy") | reverse, "Coming soon.") }}
+      </div>
+    </div>
+  </section>
+
+  <section id="writings-interests">
+    <div class="container">
+      <div class="reveal panel">
+        <h3 class="panel-title">Interests</h3>
+        {{ writingsList(collections.writings | byTag("interests") | reverse, "Coming soon.") }}
+      </div>
+    </div>
+  </section>
+</div>

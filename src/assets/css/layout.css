@@ -207,6 +207,18 @@ section + section > .container::before {
   font-size: var(--fs-xl);
 }
 
+.writing-back {
+  margin-bottom: var(--sp-3);
+}
+
+.writing-back a {
+  font-family: var(--f-label);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--fs-xs);
+}
+
 .prose {
   margin-top: var(--sp-3);
 }

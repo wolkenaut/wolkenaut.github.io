@@ -1,10 +1,11 @@
 (function () {
-  const PANEL_NAMES = ["home", "mathematics", "astronomy", "interests"];
+  const PANEL_NAMES = ["home", "mathematics", "astronomy", "interests", "writings"];
   const TITLES = {
     home: null, // null = use the page's own <title>, set at build time
     mathematics: "Mathematics",
     astronomy: "Astronomy",
     interests: "Interests",
+    writings: "Writings",
   };
 
   // Captured once, before any panel switch can mutate document.title, so
