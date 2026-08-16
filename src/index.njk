@@ -4,7 +4,6 @@ title: Home
 description: James Collier - mathematics, astrophotography, and data engineering.
 ---
 {% from "partials/writings-list.njk" import writingsList %}
-{% from "partials/project-card.njk" import projectCard %}
 
 <div class="topic-panel" id="home" data-panel="home">
   <section class="hero" id="hero">
@@ -94,7 +93,20 @@ description: James Collier - mathematics, astrophotography, and data engineering
         <h3>Projects</h3>
         <div class="cards-grid">
           {% for project in mathProjects %}
-            {{ projectCard(project) }}
+            <article class="card project-card">
+              {% if project.filename | fileExists %}
+                <div class="photo-block" style="aspect-ratio: 3 / 2; margin-bottom: var(--sp-2);">
+                  {% image project.filename, project.alt, { sizes: "(min-width: 768px) 33vw, 100vw" } %}
+                </div>
+              {% else %}
+                <div class="placeholder-block" style="aspect-ratio: 3 / 2; margin-bottom: var(--sp-2);">
+                  <span>{{ project.filename }} - {{ project.dimensions }}</span>
+                </div>
+              {% endif %}
+              <p class="eyebrow">{{ project.term }} - {{ project.advisor }}</p>
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.description }}</p>
+            </article>
           {% endfor %}
         </div>
       </div>
@@ -161,13 +173,13 @@ description: James Collier - mathematics, astrophotography, and data engineering
     <div class="container">
       <div class="reveal panel">
         <h3 class="panel-title">Research</h3>
-        {% if "astro/research.jpg" | fileExists %}
+        {% if "astro/research.png" | fileExists %}
           <div class="photo-block research-photo" style="aspect-ratio: 4 / 3;">
-            {% image "astro/research.jpg", "Research photo.", { sizes: "(min-width: 768px) 400px, 100vw" } %}
+            {% image "astro/research.png", "Research photo.", { sizes: "(min-width: 768px) 400px, 100vw" } %}
           </div>
         {% else %}
           <div class="placeholder-block research-photo" style="aspect-ratio: 4 / 3;">
-            <span>astro/research.jpg - 1600×1200</span>
+            <span>astro/research.png - 1600×1200</span>
           </div>
         {% endif %}
         <p class="eyebrow">STARS Summer Research Program, 2023 - Prof. Charles Bailyn</p>
