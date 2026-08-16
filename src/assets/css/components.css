@@ -57,17 +57,26 @@
 
 /* ---- Footer ---- */
 .site-footer {
-  /* Opaque center stripe only — .margin-band (layout.css) supplies the
-     translucent margin tint for the whole page, footer included. */
-  background: linear-gradient(
-    to right,
-    transparent calc(50% - var(--container) / 2),
-    var(--c-bg-alt) calc(50% - var(--container) / 2),
-    var(--c-bg-alt) calc(50% + var(--container) / 2),
-    transparent calc(50% + var(--container) / 2)
-  );
-  border-top: 1px solid var(--c-border);
+  position: relative;
+  /* Flat --c-bg across the whole width (not the opaque-center/transparent-
+     margin gradient sections use) — the footer is meant to read as the
+     same page background, not its own distinct band. */
+  background: var(--c-bg);
   padding-block: var(--sp-4);
+}
+
+/* Divider scoped to .container's width, matching the section-to-section
+   divider pattern — a plain border-top on .site-footer itself would span
+   the full-bleed element, bleeding into the margins on either side. */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, var(--container));
+  height: 1px;
+  background: var(--c-border);
 }
 
 .site-footer .container {
