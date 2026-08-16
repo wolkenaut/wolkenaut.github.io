@@ -218,6 +218,7 @@ section:not(.page-header) + section > .container::before {
   .about-grid {
     flex-direction: row;
     align-items: flex-start;
+    gap: var(--sp-3);
   }
 
   .about-text {
