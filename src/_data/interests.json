@@ -2,28 +2,28 @@
   {
     "title": "Factorio",
     "description": "Logistics, resource management, factory building.",
-    "filename": "interests/factorio.jpg",
+    "filename": "interests/factorio.png",
     "dimensions": "1200×800",
     "alt": "A sprawling Factorio factory base with conveyor belts, pipes, and assembler buildings."
   },
   {
     "title": "NYT Crossword",
     "description": "Started in April, daily ever since.",
-    "filename": "interests/crossword.jpg",
+    "filename": "interests/crossword.png",
     "dimensions": "1200×800",
     "alt": "A partially filled New York Times crossword puzzle grid."
   },
   {
     "title": "Minesweeper",
     "description": "Logic on a grid; patterns accumulate with practice, and it rewards speedrunning.",
-    "filename": "interests/minesweeper.jpg",
+    "filename": "interests/minesweeper.png",
     "dimensions": "1200×800",
     "alt": "A Minesweeper board mid-game, with numbered tiles and flagged mines."
   },
   {
     "title": "Sudoku Variants",
     "description": "Many variants, each with its own solving techniques.",
-    "filename": "interests/sudoku.jpg",
+    "filename": "interests/sudoku.png",
     "dimensions": "1200×800",
     "alt": "A sudoku variant grid with extra colored region constraints."
   }
