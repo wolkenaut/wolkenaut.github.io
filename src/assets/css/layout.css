@@ -226,7 +226,7 @@ section:not(.page-header) + section > .container::before {
   }
 
   .about-photo {
-    flex: 0 0 33%;
+    flex: 0 0 40%;
   }
 }
 
@@ -245,7 +245,7 @@ section:not(.page-header) + section > .container::before {
 @media (min-width: 600px) {
   .research-photo {
     float: right;
-    width: 33%;
+    width: 40%;
     margin: 0 0 var(--sp-3) var(--sp-3);
   }
 }

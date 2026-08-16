@@ -285,10 +285,7 @@
    instead of showing a caption) ---- */
 .photo-block {
   overflow: hidden;
-  border: 1px dashed var(--c-accent);
-  /* Small gap so the photo doesn't sit flush against the dashed line —
-     reads as a frame/mat rather than a hard crop edge. */
-  padding: 4px;
+  border: 2px solid var(--c-accent);
 }
 
 .photo-block picture,

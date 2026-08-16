@@ -57,6 +57,36 @@
     return true;
   }
 
+  // Clicking a nav link to the panel that's already active doesn't change
+  // location.hash, so hashchange never fires and applyActivePanel's own
+  // scrollTo(0,0) never runs — the browser's native "scroll the element
+  // with this id into view" behavior is all that's left, and it doesn't
+  // know about the sticky header sitting on top of #home, landing a bit
+  // lower than a fresh load does. Handling the click ourselves in every
+  // case (same panel or not) keeps the two consistent.
+  document.addEventListener("click", (event) => {
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+    const link = event.target.closest("[data-panel-link], .site-title");
+    if (!link) return;
+
+    let url;
+    try {
+      url = new URL(link.href, window.location.href);
+    } catch (e) {
+      return;
+    }
+    if (url.origin !== window.location.origin || url.pathname !== window.location.pathname || !url.hash) return;
+
+    event.preventDefault();
+    if (location.hash === url.hash) {
+      applyActivePanel();
+    } else {
+      location.hash = url.hash;
+    }
+  });
+
   window.SitePanels = { init: applyActivePanel };
   window.addEventListener("hashchange", applyActivePanel);
   applyActivePanel();
