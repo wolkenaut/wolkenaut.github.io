@@ -205,6 +205,30 @@ section:not(.page-header) + section > .container::before {
   gap: var(--sp-4);
 }
 
+/* About panel: text stacked above the photo on narrow viewports, side by
+   side (photo on the right) from 768px up — same breakpoint as
+   .hero-grid. */
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+@media (min-width: 768px) {
+  .about-grid {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .about-text {
+    flex: 1;
+  }
+
+  .about-photo {
+    flex: 0 0 200px;
+  }
+}
+
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
