@@ -268,7 +268,24 @@ section:not(.page-header) + section > .container::before {
 }
 
 .prose p {
+  /* Overrides the global p { max-width: var(--measure) } — that's a
+     deliberate readable-line-length cap for short text elsewhere (card
+     copy, panel text), but for a full article it read as not using the
+     page's width at all. */
+  max-width: none;
   margin-bottom: var(--sp-2);
+}
+
+/* Images dropped into an article (via {% image %}) center as their own
+   block beneath whatever text precedes them, rather than sitting flush
+   left at whatever their intrinsic width happens to be. */
+.prose picture,
+.prose img {
+  display: block;
+  margin-inline: auto;
+  margin-block: var(--sp-3);
+  max-width: 100%;
+  height: auto;
 }
 
 .prose .katex-display {

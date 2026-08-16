@@ -39,9 +39,15 @@ description: James Collier — mathematics, astrophotography, and data engineeri
             data engineering.
           </p>
         </div>
-        <div class="placeholder-block about-photo" style="aspect-ratio: 1 / 1;">
-          <span>about/portrait.jpg — 1200×1200</span>
-        </div>
+        {% if "about/portrait.jpg" | fileExists %}
+          <div class="photo-block about-photo" style="aspect-ratio: 1 / 1;">
+            {% image "about/portrait.jpg", "Portrait of James Collier.", { sizes: "(min-width: 768px) 200px, 100vw" } %}
+          </div>
+        {% else %}
+          <div class="placeholder-block about-photo" style="aspect-ratio: 1 / 1;">
+            <span>about/portrait.jpg — 1200×1200</span>
+          </div>
+        {% endif %}
       </div>
     </div>
   </section>
@@ -134,9 +140,15 @@ description: James Collier — mathematics, astrophotography, and data engineeri
         <div class="gallery-grid">
           {% for item in gallery %}
             <figure class="gallery-item">
-              <div class="placeholder-block" style="aspect-ratio: 3 / 2;">
-                <span>{{ item.filename }} — {{ item.dimensions }}</span>
-              </div>
+              {% if item.filename | fileExists %}
+                <div class="photo-block" style="aspect-ratio: 3 / 2;">
+                  {% image item.filename, item.alt, { sizes: "(min-width: 768px) 33vw, 100vw" } %}
+                </div>
+              {% else %}
+                <div class="placeholder-block" style="aspect-ratio: 3 / 2;">
+                  <span>{{ item.filename }} — {{ item.dimensions }}</span>
+                </div>
+              {% endif %}
               <figcaption>{{ item.title }}</figcaption>
             </figure>
           {% endfor %}
@@ -186,9 +198,15 @@ description: James Collier — mathematics, astrophotography, and data engineeri
         <div class="cards-grid">
           {% for interest in interests %}
             <article class="card">
-              <div class="placeholder-block" style="aspect-ratio: 3 / 2; margin-bottom: var(--sp-2);">
-                <span>{{ interest.filename }} — {{ interest.dimensions }}</span>
-              </div>
+              {% if interest.filename | fileExists %}
+                <div class="photo-block" style="aspect-ratio: 3 / 2; margin-bottom: var(--sp-2);">
+                  {% image interest.filename, interest.alt, { sizes: "(min-width: 768px) 25vw, 50vw" } %}
+                </div>
+              {% else %}
+                <div class="placeholder-block" style="aspect-ratio: 3 / 2; margin-bottom: var(--sp-2);">
+                  <span>{{ interest.filename }} — {{ interest.dimensions }}</span>
+                </div>
+              {% endif %}
               <h3>{{ interest.title }}</h3>
               <p>{{ interest.description }}</p>
             </article>

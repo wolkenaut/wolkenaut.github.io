@@ -275,6 +275,21 @@
   letter-spacing: 0.08em;
 }
 
+/* ---- Real photo blocks (placeholder-block's replacement once a file
+   exists — same box footprint/border, but crops a real photo to fit
+   instead of showing a caption) ---- */
+.photo-block {
+  overflow: hidden;
+  border: 1px solid var(--c-accent);
+}
+
+.photo-block picture,
+.photo-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .gallery-item {
   margin: 0;
 }
