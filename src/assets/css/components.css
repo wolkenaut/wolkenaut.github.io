@@ -306,12 +306,16 @@
      repainted in lockstep with it — since it paints separately/behind,
      that shows up as a flash of the raw page background for a frame. */
   will-change: transform;
+  /* Single tone (--cb-tone-a-rgb) alternating with transparent, rather
+     than two different tones — set in checkerboard.njk's inline style to
+     --c-accent-rgb at 0.5 opacity, so the checkerboard reads as the same
+     orange as the site's links, just translucent. */
   background-image: conic-gradient(
     from 90deg,
     rgb(var(--cb-tone-a-rgb) / var(--cb-opacity)) 90deg,
-    rgb(var(--cb-tone-b-rgb) / var(--cb-opacity)) 90deg 180deg,
+    transparent 90deg 180deg,
     rgb(var(--cb-tone-a-rgb) / var(--cb-opacity)) 180deg 270deg,
-    rgb(var(--cb-tone-b-rgb) / var(--cb-opacity)) 270deg
+    transparent 270deg
   );
   background-size: var(--cb-tile) var(--cb-tile);
   animation: checkerboard-drift 6s linear infinite;
