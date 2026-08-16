@@ -226,7 +226,7 @@ section:not(.page-header) + section > .container::before {
   }
 
   .about-photo {
-    flex: 0 0 200px;
+    flex: 0 0 33%;
   }
 }
 
@@ -245,8 +245,7 @@ section:not(.page-header) + section > .container::before {
 @media (min-width: 600px) {
   .research-photo {
     float: right;
-    width: 40%;
-    max-width: 340px;
+    width: 33%;
     margin: 0 0 var(--sp-3) var(--sp-3);
   }
 }
@@ -255,6 +254,20 @@ section:not(.page-header) + section > .container::before {
   .research-photo {
     margin-bottom: var(--sp-3);
   }
+}
+
+/* A float doesn't contribute to a normal-flow parent's height by default,
+   so #astronomy-research .panel would end its own border/background
+   above .research-photo's bottom edge whenever the image is taller than
+   the text beside it — the image visibly overflowing past the panel.
+   flow-root establishes a new block formatting context that contains
+   floats properly. Scoped to this specific panel rather than .panel
+   generally: .panel's own display isn't otherwise declared, and setting
+   it there collided with .about-grid (same element also carries .panel)
+   needing display: flex — same-specificity, later-loaded stylesheet won,
+   silently breaking the About layout. */
+#astronomy-research .panel {
+  display: flow-root;
 }
 
 .page-header {
