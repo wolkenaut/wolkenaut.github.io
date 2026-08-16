@@ -30,6 +30,11 @@
                                            needs a darker shade to stay
                                            readable */
   --c-taupe:         #8C7A63;  /* decorative lines, tiling motif */
+  --c-checkerboard:  #E2853F;  /* checkerboard tiles only — a brighter,
+                                   more saturated orange than --c-accent,
+                                   which reads as muted terracotta/brown at
+                                   the size and transparency the
+                                   checkerboard renders at */
 
   /* Space-separated RGB triplets of the above, for rgb(var(...) / alpha)
      translucency — avoids color-mix(), which has had real rendering gaps
@@ -40,6 +45,7 @@
   --c-taupe-rgb:       140 122  99;
   --c-surface-rgb:     248 230 210;
   --c-accent-rgb:      166 106  74;
+  --c-checkerboard-rgb: 226 133  63;
 
   /* ---- Accent ---- */
   --c-accent:        #A66A4A;  /* terracotta — links, active states */

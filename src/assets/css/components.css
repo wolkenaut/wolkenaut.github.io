@@ -308,8 +308,10 @@
   will-change: transform;
   /* Single tone (--cb-tone-a-rgb) alternating with transparent, rather
      than two different tones — set in checkerboard.njk's inline style to
-     --c-accent-rgb at 0.5 opacity, so the checkerboard reads as the same
-     orange as the site's links, just translucent. */
+     --c-checkerboard-rgb at 0.5 opacity. Its own dedicated token rather
+     than reusing --c-accent: --c-accent is a muted terracotta that reads
+     as brown at this size/transparency, where a brighter, more saturated
+     orange is wanted. */
   background-image: conic-gradient(
     from 90deg,
     rgb(var(--cb-tone-a-rgb) / var(--cb-opacity)) 90deg,
