@@ -12,8 +12,8 @@
   // repeated switches always derive from the original server-rendered title
   // rather than compounding on top of a previous rewrite.
   const initialTitle = document.title;
-  const titleSuffix = initialTitle.includes(" — ")
-    ? initialTitle.slice(initialTitle.indexOf(" — "))
+  const titleSuffix = initialTitle.includes(" - ")
+    ? initialTitle.slice(initialTitle.indexOf(" - "))
     : "";
 
   function panelNameFromHash() {

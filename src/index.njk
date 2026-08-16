@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Home
-description: James Collier — mathematics, astrophotography, and data engineering.
+description: James Collier - mathematics, astrophotography, and data engineering.
 ---
 {% from "partials/writings-list.njk" import writingsList %}
 {% from "partials/project-card.njk" import projectCard %}
@@ -45,7 +45,7 @@ description: James Collier — mathematics, astrophotography, and data engineeri
           </div>
         {% else %}
           <div class="placeholder-block about-photo" style="aspect-ratio: 1 / 1;">
-            <span>about/portrait.jpg — 1200×1200</span>
+            <span>about/portrait.jpg - 1200×1200</span>
           </div>
         {% endif %}
       </div>
@@ -64,7 +64,7 @@ description: James Collier — mathematics, astrophotography, and data engineeri
             {% endfor %}
           </ul>
         {% else %}
-          <p class="eyebrow">External profiles — coming soon.</p>
+          <p class="eyebrow">External profiles - coming soon.</p>
         {% endif %}
       </div>
     </div>
@@ -83,7 +83,7 @@ description: James Collier — mathematics, astrophotography, and data engineeri
     <div class="container">
       <div class="reveal panel">
         <h3 class="panel-title">Writings</h3>
-        {{ writingsList(collections.writings | byTag("math") | reverse | limit(3), "Essays on hyperbolic geometry, knot theory, and other things worth writing down — coming soon.") }}
+        {{ writingsList(collections.writings | byTag("math") | reverse | limit(3), "Essays on hyperbolic geometry, knot theory, and other things worth writing down - coming soon.") }}
       </div>
     </div>
   </section>
@@ -128,7 +128,7 @@ description: James Collier — mathematics, astrophotography, and data engineeri
     <div class="container">
       <div class="reveal panel">
         <h3 class="panel-title">Writings</h3>
-        {{ writingsList(collections.writings | byTag("astronomy") | reverse | limit(3), "Notes on astrophotography and observing — coming soon.") }}
+        {{ writingsList(collections.writings | byTag("astronomy") | reverse | limit(3), "Notes on astrophotography and observing - coming soon.") }}
       </div>
     </div>
   </section>
@@ -146,7 +146,7 @@ description: James Collier — mathematics, astrophotography, and data engineeri
                 </div>
               {% else %}
                 <div class="placeholder-block" style="aspect-ratio: 3 / 2;">
-                  <span>{{ item.filename }} — {{ item.dimensions }}</span>
+                  <span>{{ item.filename }} - {{ item.dimensions }}</span>
                 </div>
               {% endif %}
               <figcaption>{{ item.title }}</figcaption>
@@ -161,12 +161,21 @@ description: James Collier — mathematics, astrophotography, and data engineeri
     <div class="container">
       <div class="reveal panel">
         <h3 class="panel-title">Research</h3>
-        <p class="eyebrow">STARS Summer Research Program, 2023 — Prof. Charles Bailyn</p>
+        {% if "astro/research.jpg" | fileExists %}
+          <div class="photo-block research-photo" style="aspect-ratio: 4 / 3;">
+            {% image "astro/research.jpg", "Research photo.", { sizes: "(min-width: 768px) 400px, 100vw" } %}
+          </div>
+        {% else %}
+          <div class="placeholder-block research-photo" style="aspect-ratio: 4 / 3;">
+            <span>astro/research.jpg - 1600×1200</span>
+          </div>
+        {% endif %}
+        <p class="eyebrow">STARS Summer Research Program, 2023 - Prof. Charles Bailyn</p>
         <p>
           Analysed twenty years of optical and infrared data from the black hole
           X-ray binary V4641 Sagittarii. Used Python, Excel, Siril, and SAOImage
           for stellar data analysis; NumPy, AstroPy, and SciPy for timelines and
-          optical data initialisation — alignment, dithering, and differential
+          optical data initialisation - alignment, dithering, and differential
           aperture photometry.
         </p>
       </div>
@@ -186,7 +195,7 @@ description: James Collier — mathematics, astrophotography, and data engineeri
     <div class="container">
       <div class="reveal panel">
         <h3 class="panel-title">Writings</h3>
-        {{ writingsList(collections.writings | byTag("interests") | reverse | limit(3), "Notes on whatever puzzle has my attention this week — coming soon.") }}
+        {{ writingsList(collections.writings | byTag("interests") | reverse | limit(3), "Notes on whatever puzzle has my attention this week - coming soon.") }}
       </div>
     </div>
   </section>
@@ -204,7 +213,7 @@ description: James Collier — mathematics, astrophotography, and data engineeri
                 </div>
               {% else %}
                 <div class="placeholder-block" style="aspect-ratio: 3 / 2; margin-bottom: var(--sp-2);">
-                  <span>{{ interest.filename }} — {{ interest.dimensions }}</span>
+                  <span>{{ interest.filename }} - {{ interest.dimensions }}</span>
                 </div>
               {% endif %}
               <h3>{{ interest.title }}</h3>
