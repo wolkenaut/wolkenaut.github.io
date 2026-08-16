@@ -39,7 +39,7 @@ description: James Collier - mathematics, astrophotography, and data engineering
           </p>
         </div>
         {% if "about/portrait.jpg" | fileExists %}
-          <div class="photo-block about-photo" style="aspect-ratio: 1 / 1;">
+          <div class="photo-block about-photo">
             {% image "about/portrait.jpg", "Portrait of James Collier.", { sizes: "(min-width: 768px) 200px, 100vw" } %}
           </div>
         {% else %}
@@ -95,7 +95,7 @@ description: James Collier - mathematics, astrophotography, and data engineering
           {% for project in mathProjects %}
             <article class="card project-card">
               {% if project.filename | fileExists %}
-                <div class="photo-block" style="aspect-ratio: 3 / 2; margin-bottom: var(--sp-2);">
+                <div class="photo-block" style="margin-bottom: var(--sp-2);">
                   {% image project.filename, project.alt, { sizes: "(min-width: 768px) 33vw, 100vw" } %}
                 </div>
               {% else %}
@@ -153,7 +153,7 @@ description: James Collier - mathematics, astrophotography, and data engineering
           {% for item in gallery %}
             <figure class="gallery-item">
               {% if item.filename | fileExists %}
-                <div class="photo-block" style="aspect-ratio: 3 / 2;">
+                <div class="photo-block">
                   {% image item.filename, item.alt, { sizes: "(min-width: 768px) 33vw, 100vw" } %}
                 </div>
               {% else %}
@@ -174,7 +174,7 @@ description: James Collier - mathematics, astrophotography, and data engineering
       <div class="reveal panel">
         <h3 class="panel-title">Research</h3>
         {% if "astro/research.png" | fileExists %}
-          <div class="photo-block research-photo" style="aspect-ratio: 4 / 3;">
+          <div class="photo-block research-photo">
             {% image "astro/research.png", "Research photo.", { sizes: "(min-width: 768px) 400px, 100vw" } %}
           </div>
         {% else %}
@@ -220,7 +220,7 @@ description: James Collier - mathematics, astrophotography, and data engineering
           {% for interest in interests %}
             <article class="card">
               {% if interest.filename | fileExists %}
-                <div class="photo-block" style="aspect-ratio: 3 / 2; margin-bottom: var(--sp-2);">
+                <div class="photo-block" style="margin-bottom: var(--sp-2);">
                   {% image interest.filename, interest.alt, { sizes: "(min-width: 768px) 25vw, 50vw" } %}
                 </div>
               {% else %}
