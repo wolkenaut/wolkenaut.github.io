@@ -95,15 +95,24 @@
 }
 
 /* ---- Cards ---- */
+/* Reassigns --c-text-muted for every descendant of a box (eyebrow labels,
+   <time>, figcaptions, .card p) to the darker on-surface variant — see
+   --c-text-muted-on-surface in tokens.css for why. */
+.card,
+.panel,
+.placeholder-block {
+  --c-text-muted: var(--c-text-muted-on-surface);
+}
+
 .card {
   background: var(--c-surface);
-  border: 1px solid var(--c-border);
+  border: 1px solid var(--c-accent);
   padding: var(--sp-3);
   transition: border-color 200ms ease;
 }
 
 .card:hover {
-  border-color: var(--c-accent);
+  border-color: var(--c-accent-hover);
 }
 
 .card h3 {
@@ -121,7 +130,7 @@
    .card's muted-paragraph rule would be wrong. ---- */
 .panel {
   background: var(--c-surface);
-  border: 1px solid var(--c-border);
+  border: 1px solid var(--c-accent);
   padding: var(--sp-3);
 }
 
@@ -154,7 +163,7 @@
   font-weight: 700;
   padding-bottom: var(--sp-2);
   margin-bottom: var(--sp-2);
-  border-bottom: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-divider-on-surface);
 }
 
 .hero-writings-group .writings-list {
@@ -187,7 +196,7 @@
    own divider already marks that boundary; doubling up would draw two
    lines on top of each other. */
 .writings-list li + li {
-  border-top: 1px solid var(--c-border);
+  border-top: 1px solid var(--c-divider-on-surface);
 }
 
 .writings-list li > div {
@@ -241,7 +250,7 @@
 /* ---- Placeholder image blocks ---- */
 .placeholder-block {
   background: var(--c-surface);
-  border: 1px dashed var(--c-border);
+  border: 1px dashed var(--c-accent);
   display: flex;
   align-items: center;
   justify-content: center;

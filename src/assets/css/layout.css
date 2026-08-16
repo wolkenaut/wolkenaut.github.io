@@ -98,6 +98,7 @@ section {
    .topic-panel isn't [hidden], and its own last section (the one with a
    background) is what needs to stretch to close the same kind of gap. */
 .topic-panel {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -123,6 +124,21 @@ section {
    section's own gradient background-image. */
 section::after,
 .writing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: min(100%, var(--container));
+  margin-inline: auto;
+  border: 1px solid var(--c-taupe);
+  pointer-events: none;
+}
+
+/* Same outline again, but for the whole visible panel at once rather than
+   each section individually — this is what actually reads as "the main
+   content column has an edge, and past it is the margin" on the index
+   page, where a panel is several stacked sections. .writing doesn't need
+   this version: it's a single element already covered by the rule above. */
+.topic-panel::after {
   content: "";
   position: absolute;
   inset: 0;
