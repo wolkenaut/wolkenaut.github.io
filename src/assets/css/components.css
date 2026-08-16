@@ -4,7 +4,6 @@
   top: 0;
   z-index: 10;
   background: var(--c-bg);
-  border-bottom: 1px solid var(--c-border);
 }
 
 .site-header .container {

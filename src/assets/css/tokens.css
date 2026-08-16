@@ -2,16 +2,19 @@
   /* ---- Surface ---- */
   --c-bg:            #F4EFE5;  /* page background, warm cream */
   --c-bg-alt:        #EDE6D9;  /* alternating section band */
-  --c-surface:       #E9E1D3;  /* cards, panels, placeholder blocks */
+  --c-surface:       #DCD0BC;  /* cards, panels, placeholder blocks */
   --c-border:        #D6C9B4;  /* hairline rules, card edges */
 
   /* ---- Ink ---- */
   --c-text:          #3A322A;  /* body copy */
   --c-text-muted:    #6B6055;  /* captions, metadata, secondary */
   --c-taupe:         #8C7A63;  /* decorative lines, tiling motif */
-  --c-taupe-warm:    #A6804F;  /* checkerboard's darker tile only — more
+  --c-taupe-warm:    #C08A3E;  /* checkerboard's darker tile only — more
                                    orange than --c-taupe, which stays as-is
                                    for the margin band and scrollbar */
+  --c-cream:         #F2E4C7;  /* checkerboard's lighter tile only — warmer
+                                   and more saturated than --c-border, which
+                                   stays as-is for hairlines/card edges */
 
   /* Space-separated RGB triplets of the above, for rgb(var(...) / alpha)
      translucency — avoids color-mix(), which has had real rendering gaps
@@ -20,7 +23,8 @@
   --c-bg-alt-rgb:      237 230 217;
   --c-border-rgb:      214 201 180;
   --c-taupe-rgb:       140 122  99;
-  --c-taupe-warm-rgb:  166 128  79;
+  --c-taupe-warm-rgb:  192 138  62;
+  --c-cream-rgb:       242 228 199;
 
   /* ---- Accent ---- */
   --c-accent:        #A66A4A;  /* terracotta — links, active states */

@@ -52,7 +52,7 @@ main {
      forces its own compositor layer so it doesn't flash white when <main>
      reflows. */
   will-change: transform;
-  background: rgb(var(--c-taupe-rgb) / 0.3);
+  background: rgb(var(--c-taupe-rgb) / 0.24);
 }
 
 section,
@@ -135,8 +135,11 @@ section::after,
 /* Centered divider between sections, replacing alternating background bands
    as the way sections read as distinct. Sized relative to .container (the
    readable content column), not the full-bleed section — so it scales with
-   the content width instead of being a fixed pixel value. */
-section + section > .container::before {
+   the content width instead of being a fixed pixel value. Excludes
+   .page-header specifically — a divider directly under a page's intro
+   title/heading reads as a stray leftover line, not a meaningful section
+   boundary. */
+section:not(.page-header) + section > .container::before {
   content: "";
   position: absolute;
   /* .container sits var(--sp-5) below the section's own top edge (that's
