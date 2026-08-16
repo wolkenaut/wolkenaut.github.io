@@ -2,7 +2,7 @@
   /* ---- Surface ---- */
   --c-bg:            #F4EFE5;  /* page background, warm cream */
   --c-bg-alt:        #EDE6D9;  /* alternating section band */
-  --c-surface:       #F4DDC4;  /* cards, panels, placeholder blocks — a
+  --c-surface:       #F8E6D2;  /* cards, panels, placeholder blocks — a
                                    much lighter tint of --c-accent's
                                    terracotta hue, so boxes read as related
                                    to the site's link color */
@@ -46,7 +46,7 @@
   --c-taupe-rgb:       140 122  99;
   --c-taupe-warm-rgb:  192 138  62;
   --c-cream-rgb:       242 228 199;
-  --c-surface-rgb:     244 221 196;
+  --c-surface-rgb:     248 230 210;
 
   /* ---- Accent ---- */
   --c-accent:        #A66A4A;  /* terracotta — links, active states */

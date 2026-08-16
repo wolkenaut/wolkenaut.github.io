@@ -97,22 +97,25 @@
 /* ---- Cards ---- */
 /* Reassigns --c-text-muted for every descendant of a box (eyebrow labels,
    <time>, figcaptions, .card p) to the darker on-surface variant — see
-   --c-text-muted-on-surface in tokens.css for why. */
+   --c-text-muted-on-surface in tokens.css for why. Also gives every box
+   type the same hover border-darkening interaction. */
 .card,
 .panel,
 .placeholder-block {
   --c-text-muted: var(--c-text-muted-on-surface);
+  transition: border-color 200ms ease;
+}
+
+.card:hover,
+.panel:hover,
+.placeholder-block:hover {
+  border-color: var(--c-accent-hover);
 }
 
 .card {
   background: rgb(var(--c-surface-rgb) / 0.75);
   border: 1px solid var(--c-accent);
   padding: var(--sp-3);
-  transition: border-color 200ms ease;
-}
-
-.card:hover {
-  border-color: var(--c-accent-hover);
 }
 
 .card h3 {
