@@ -6,7 +6,8 @@
     "description": "Independent study which led toward my senior thesis with my advisor Ka Ho Wong. Studied the volume conjecture relating the Kashaev invariant to the volume of the hyperbolic knot complement, and proved it in the case of the figure-eight knot. Hyperbolic knots are of interest because the hyperbolic volume of their complement is an invariant when finite. This allows us to distinguish knots, since the hyperbolic volume is conserved under deformation. Draws on representation theory, complex analysis, hyperbolic geometry, and analysis.",
     "filename": "math/hyperbolic-knots.png",
     "dimensions": "1200×800",
-    "alt": "A visualization of a hyperbolic knot complement."
+    "alt": "A visualization of a hyperbolic knot complement.",
+    "caption": "Hyperbolic knot complement visualization"
   },
   {
     "title": "Mostow's Rigidity Theorem",
@@ -15,7 +16,8 @@
     "description": "Guided project under Dongryul Kim. Built toward a proof of Mostow rigidity for hyperbolic 3-manifolds: given two compact hyperbolic 3-manifolds with isomorphic fundamental group, there exists a unique isometry between them. Explored topics such as ergodicity, hyperbolic geometry, geodesic flow, and quasi-geodesics.",
     "filename": "math/mostow-rigidity.png",
     "dimensions": "1200×800",
-    "alt": "A diagram illustrating a hyperbolic 3-manifold and its geodesic flow."
+    "alt": "A diagram illustrating a hyperbolic 3-manifold and its geodesic flow.",
+    "caption": "Hyperbolic 3-manifold geodesic flow"
   },
   {
     "title": "Circle Dynamics",
@@ -24,6 +26,7 @@
     "description": "Guided project under Ethan Cohen. Explored classes of homeomorphisms and diffeomorphisms on S¹, Poincaré classification, rotation number, and bounded variation.",
     "filename": "math/circle-dynamics.png",
     "dimensions": "1200×800",
-    "alt": "A rotation diagram on the circle S1 illustrating circle dynamics."
+    "alt": "A rotation diagram on the circle S1 illustrating circle dynamics.",
+    "caption": "Rotation dynamics on S¹"
   }
 ]

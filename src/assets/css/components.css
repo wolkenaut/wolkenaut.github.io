@@ -298,6 +298,15 @@
   height: auto;
 }
 
+/* Small faded subtitle centered directly below an image — figcaption
+   already gets a small, muted look from the shared .eyebrow/nav/time/
+   figcaption rule in base.css; this just centers it and adds a little
+   breathing room from the photo above it. */
+.photo-caption {
+  text-align: center;
+  margin-top: var(--sp-1);
+}
+
 .gallery-item {
   margin: 0;
 }

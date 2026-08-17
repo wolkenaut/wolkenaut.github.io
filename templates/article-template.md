@@ -80,3 +80,18 @@ src/assets/img/, the build will fail with a clear error from
 eleventy-img — unlike the gallery/interests grids elsewhere on the site,
 inline article images don't have a placeholder fallback, so add the real
 file first.
+
+To add a small faded subtitle centered below an image, wrap the
+shortcode in a plain HTML <figure>/<figcaption> — Markdown passes raw
+HTML blocks through untouched, so this works directly in the .md file:
+
+<figure>
+{% image "astro/orion-nebula.jpg", "Description of what's actually in the photo." %}
+<figcaption class="photo-caption">A short subtitle for the photo.</figcaption>
+</figure>
+
+The photo-caption class (components.css) is what centers the subtitle
+text and adds a little space below the image — figcaption already reads
+small and faded from the site-wide eyebrow/nav/time/figcaption rule in
+base.css, no extra styling needed. Leave the class off if you want a
+left-aligned caption instead.
