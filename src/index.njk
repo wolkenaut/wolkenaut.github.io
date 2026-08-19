@@ -88,25 +88,12 @@ description: James Collier - mathematics, astrophotography, and data engineering
 
   <section id="mathematics-thesis">
     <div class="container">
-      <div class="reveal panel split-grid">
-        <div class="split-text">
-          <h3 class="panel-title">Thesis: 2-Colored Twist Formulae in Skein Theory</h3>
-          <p>
-            This thesis followed a semester investigating the Volume Conjecture in Knot Theory with my advisor Ka Ho Wong (see projects below). The premise of the project came about as I was exploring skein theory and Kauffman brackets in defining the colored Jones polynomial. Kauffman brackets allow us to turn knot diagrams into polynomials, and we can study how these polynomials change or stay invariant as we deform our knot. I thought it was fascinating to explore the diagrammatic calculus of these objects, and the relation to important invariants in the field.
-          </p>
-          <p>
-           In this thesis, I wanted to generalize a result from Wataru Yuasa on skein-theoretic formulae of twist diagrams. Yuasa was also kind enough to respond when I reached out, and showed his workflow for strand diagrams which let me create some beautiful diagrams such as those on the right. In this paper, I wanted to generalize the sl_2 formula for different colors, and use it on a family of 2-colored links known as 2-bridge links. Using the methods of Yuasa and from another paper (Masbaum), I was able to find such a formula for full twists of two-colored strands, as well as apply it to derive a formula for the two-colored Jones Polynomial of odd 2-bridge links. 
-          </p>
-          {% if "thesis.pdf" | assetFileExists %}
-            <p><a href="/assets/files/thesis.pdf" target="_blank" rel="noopener">Read Thesis (.pdf)</a></p>
-          {% else %}
-            <p class="eyebrow">Thesis PDF - coming soon.</p>
-          {% endif %}
-        </div>
-        <figure class="split-photo">
+      <div class="reveal panel">
+        <h3 class="panel-title">Thesis: 2-Colored Twist Formulae in Skein Theory</h3>
+        <figure class="wide-photo">
           {% if "math/thesis.jpg" | fileExists %}
             <div class="photo-block">
-              {% image "math/thesis.jpg", "Thesis Figure.", { sizes: "(min-width: 768px) 40vw, 100vw" } %}
+              {% image "math/thesis.jpg", "Thesis Figure.", { sizes: "(min-width: 768px) 66vw, 100vw" } %}
             </div>
           {% else %}
             <div class="placeholder-block" style="aspect-ratio: 3 / 2;">
@@ -115,6 +102,16 @@ description: James Collier - mathematics, astrophotography, and data engineering
           {% endif %}
           <figcaption class="photo-caption">Full-twists of two colored strands using the Kauffman Bracket.</figcaption>
         </figure>
+        <p>
+          This thesis followed a semester investigating the Volume Conjecture in Knot Theory with my advisor Ka Ho Wong (see projects below). The premise of the project came about as I was exploring skein theory and Kauffman brackets in defining the colored Jones polynomial. Kauffman brackets allow us to turn knot diagrams into polynomials, and we can study how these polynomials change or stay invariant as we deform our knot. I thought it was fascinating to explore the diagrammatic calculus of these objects, and the relation to important invariants in the field.
+        </p>
+        <p>
+         In this thesis, I wanted to generalize a result from Wataru Yuasa on skein-theoretic formulae of twist diagrams. Yuasa was also kind enough to respond when I reached out, and showed his workflow for strand diagrams which let me create some beautiful diagrams such as those above. In this paper, I wanted to generalize the full twist formula for differently colored strands, and use it on a family known as the 2-bridge links. Using the methods of Yuasa and from another paper from Masbaum, I was able to find such a formula for full twists of two-colored strands, as well as apply it to derive a formula for the two-colored Jones Polynomial of odd 2-bridge links.
+        </p>
+        <p>
+          I've written a longer piece going into more depth on the thesis, including a link to the full PDF:
+        </p>
+        <p><a href="/writings/senior-thesis-2-colored-twist-formulae/">Read more about the thesis</a></p>
       </div>
     </div>
   </section>
@@ -208,7 +205,7 @@ description: James Collier - mathematics, astrophotography, and data engineering
     <div class="container">
       <div class="reveal panel">
         <h3 class="panel-title">Research</h3>
-        <figure class="research-photo">
+        <figure class="wide-photo">
           {% if "astro/research.png" | fileExists %}
             <div class="photo-block">
               {% image "astro/research.png", "Research photo.", { sizes: "(min-width: 768px) 66vw, 100vw" } %}

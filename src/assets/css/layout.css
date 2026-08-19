@@ -246,8 +246,8 @@ section:not(.page-header) + section > .container::before {
 }
 
 /* Large image centered above the explanation text, sized relative to its
-   panel rather than the viewport. */
-.research-photo {
+   panel rather than the viewport (Astronomy Research, Thesis figure). */
+.wide-photo {
   width: 66.67%;
   margin-inline: auto;
   margin-bottom: var(--sp-3);
