@@ -206,8 +206,10 @@ section:not(.page-header) + section > .container::before {
 }
 
 /* Reusable text + side-photo layout (About, the Senior Thesis section) —
-   text stacked above the photo on narrow viewports, side by side (photo
-   on the right) from 768px up, same breakpoint as .hero-grid. */
+   text stacked above the photo on narrow viewports. From 768px up, the
+   photo floats to the right and text wraps around it; once the text runs
+   past the photo's bottom it continues at full width below, rather than
+   being confined to a narrow column for its whole length. */
 .split-grid {
   display: flex;
   flex-direction: column;
@@ -216,17 +218,23 @@ section:not(.page-header) + section > .container::before {
 
 @media (min-width: 768px) {
   .split-grid {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: var(--sp-3);
+    display: block;
   }
 
-  .split-text {
-    flex: 1;
+  /* Clearfix — without this, the section's height (and the divider/border
+     it draws relative to) would ignore the floated .split-photo entirely
+     whenever it's taller than .split-text. */
+  .split-grid::after {
+    content: "";
+    display: table;
+    clear: both;
   }
 
   .split-photo {
-    flex: 0 0 40%;
+    float: right;
+    width: 40%;
+    margin-left: var(--sp-3);
+    margin-bottom: var(--sp-3);
   }
 }
 
