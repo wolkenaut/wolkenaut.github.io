@@ -1,4 +1,6 @@
 const markdownItKatex = require("@vscode/markdown-it-katex").default;
+const katex = require("katex");
+const { SafeString } = require("nunjucks").runtime;
 const Image = require("@11ty/eleventy-img").default;
 const fs = require("fs");
 const path = require("path");
@@ -82,6 +84,27 @@ module.exports = function (eleventyConfig) {
   // link to it once it's there, show a "coming soon" note until then.
   eleventyConfig.addFilter("assetFileExists", (relPath) =>
     !!relPath && fs.existsSync(path.join(FILES_SRC_DIR, relPath))
+  );
+
+  // LaTeX in a .njk file (e.g. index.njk) — amendLibrary("md", ...) below
+  // only wires KaTeX into .md-file processing, so plain template text
+  // never goes through it. These call the same katex package directly,
+  // wrapped in SafeString so the rendered HTML displays as math instead
+  // of escaped tag soup — no | safe needed at the call site (a
+  // {% filter %} block can't chain filters with | in this version of
+  // Nunjucks, so building safety in here avoids that entirely).
+  //
+  // As a quoted string argument, backslashes need escaping like any JS
+  // string (\\pi, \\sqrt, ...), which gets old fast for real LaTeX:
+  //   {{ "x^2 + y^2 = z^2" | katex }}
+  // For anything with backslashes, use a filter block instead — the
+  // content between the tags is raw template text, no string-literal
+  // escaping needed at all:
+  //   {% filter katex %}\pi_1(S^3 \setminus K){% endfilter %}
+  // katexBlock is the same, in KaTeX's centered display mode.
+  eleventyConfig.addFilter("katex", (str) => new SafeString(katex.renderToString(str, { throwOnError: false })));
+  eleventyConfig.addFilter("katexBlock", (str) =>
+    new SafeString(katex.renderToString(str, { throwOnError: false, displayMode: true }))
   );
 
   // {% image "astro/orion-nebula.jpg", "Alt text", { sizes: "..." } %}
