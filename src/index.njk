@@ -27,8 +27,8 @@ description: James Collier - mathematics, astrophotography, and data engineering
 
   <section id="about">
     <div class="container">
-      <div class="reveal panel about-grid">
-        <div class="about-text">
+      <div class="reveal panel split-grid">
+        <div class="split-text">
           <h2 class="panel-title">About</h2>
           <p>
             Hi! My name is James Collier and I graduated from Yale in 2026 with a BS in Intensive Mathematics. I'm using this personal site as an opportunity to show off some of my passions and interests. I study math, but I'm also passionate about
@@ -38,11 +38,11 @@ description: James Collier - mathematics, astrophotography, and data engineering
           </p>
         </div>
         {% if "about/portrait.jpg" | fileExists %}
-          <div class="photo-block about-photo">
+          <div class="photo-block split-photo">
             {% image "about/portrait.jpg", "Portrait of James Collier.", { sizes: "(min-width: 768px) 200px, 100vw" } %}
           </div>
         {% else %}
-          <div class="placeholder-block about-photo" style="aspect-ratio: 1 / 1;">
+          <div class="placeholder-block split-photo" style="aspect-ratio: 1 / 1;">
             <span>about/portrait.jpg - 1200×1200</span>
           </div>
         {% endif %}
@@ -82,6 +82,36 @@ description: James Collier - mathematics, astrophotography, and data engineering
       <div class="reveal panel">
         <h3 class="panel-title">Writings</h3>
         {{ writingsList(collections.writings | byTag("math") | reverse | limit(3), "Math writings about things I find interesting :)") }}
+      </div>
+    </div>
+  </section>
+
+  <section id="mathematics-thesis">
+    <div class="container">
+      <div class="reveal panel split-grid">
+        <div class="split-text">
+          <h3 class="panel-title">Senior Thesis</h3>
+          <p>
+            A description of my senior thesis goes here.
+          </p>
+          {% if "thesis.pdf" | assetFileExists %}
+            <p><a href="/assets/files/thesis.pdf" target="_blank" rel="noopener">Read the thesis (PDF)</a></p>
+          {% else %}
+            <p class="eyebrow">Thesis PDF - coming soon.</p>
+          {% endif %}
+        </div>
+        <figure class="split-photo">
+          {% if "math/thesis.jpg" | fileExists %}
+            <div class="photo-block">
+              {% image "math/thesis.jpg", "Senior thesis figure.", { sizes: "(min-width: 768px) 40vw, 100vw" } %}
+            </div>
+          {% else %}
+            <div class="placeholder-block" style="aspect-ratio: 3 / 2;">
+              <span>math/thesis.jpg - 1600×1067</span>
+            </div>
+          {% endif %}
+          <figcaption class="photo-caption">Caption for the thesis figure.</figcaption>
+        </figure>
       </div>
     </div>
   </section>

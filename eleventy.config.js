@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const IMG_SRC_DIR = "src/assets/img";
+const FILES_SRC_DIR = "src/assets/files";
 
 module.exports = function (eleventyConfig) {
   // img/ is excluded here — real photos in there are processed by the
@@ -11,6 +12,8 @@ module.exports = function (eleventyConfig) {
   // multi-megabyte originals never ship alongside the optimized output.
   eleventyConfig.addPassthroughCopy("src/assets/css");
   eleventyConfig.addPassthroughCopy("src/assets/js");
+  // Non-image downloads (PDFs, etc) — copied as-is, no processing needed.
+  eleventyConfig.addPassthroughCopy({ [FILES_SRC_DIR]: "assets/files" });
   // Only the specific font files actually referenced in src/assets/css/fonts.css —
   // the fontsource packages ship many more axis/subset/weight variants than we use.
   const fontFiles = {
@@ -72,6 +75,13 @@ module.exports = function (eleventyConfig) {
   // template edit before it can be used.
   eleventyConfig.addFilter("fileExists", (relPath) =>
     !!relPath && fs.existsSync(path.join(IMG_SRC_DIR, relPath))
+  );
+
+  // Same idea as fileExists, but for non-image downloads in
+  // src/assets/files/ (e.g. `{% if "thesis.pdf" | assetFileExists %}`) —
+  // link to it once it's there, show a "coming soon" note until then.
+  eleventyConfig.addFilter("assetFileExists", (relPath) =>
+    !!relPath && fs.existsSync(path.join(FILES_SRC_DIR, relPath))
   );
 
   // {% image "astro/orion-nebula.jpg", "Alt text", { sizes: "..." } %}

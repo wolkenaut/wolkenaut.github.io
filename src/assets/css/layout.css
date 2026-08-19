@@ -205,27 +205,27 @@ section:not(.page-header) + section > .container::before {
   gap: var(--sp-4);
 }
 
-/* About panel: text stacked above the photo on narrow viewports, side by
-   side (photo on the right) from 768px up — same breakpoint as
-   .hero-grid. */
-.about-grid {
+/* Reusable text + side-photo layout (About, the Senior Thesis section) —
+   text stacked above the photo on narrow viewports, side by side (photo
+   on the right) from 768px up, same breakpoint as .hero-grid. */
+.split-grid {
   display: flex;
   flex-direction: column;
   gap: var(--sp-4);
 }
 
 @media (min-width: 768px) {
-  .about-grid {
+  .split-grid {
     flex-direction: row;
     align-items: flex-start;
     gap: var(--sp-3);
   }
 
-  .about-text {
+  .split-text {
     flex: 1;
   }
 
-  .about-photo {
+  .split-photo {
     flex: 0 0 40%;
   }
 }
