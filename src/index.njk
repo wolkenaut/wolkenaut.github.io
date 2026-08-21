@@ -30,6 +30,15 @@ description: James Collier - mathematics, astrophotography, and data engineering
       <div class="reveal panel split-grid">
         <div class="split-text">
           <h2 class="panel-title">About</h2>
+          {% if "about/portrait.jpg" | fileExists %}
+            <div class="photo-block split-photo">
+              {% image "about/portrait.jpg", "Portrait of James Collier.", { sizes: "(min-width: 768px) 200px, 100vw" } %}
+            </div>
+          {% else %}
+            <div class="placeholder-block split-photo" style="aspect-ratio: 1 / 1;">
+              <span>about/portrait.jpg - 1200×1200</span>
+            </div>
+          {% endif %}
           <p>
             Hi! My name is James Collier and I graduated from Yale in 2026 with a BS in Intensive Mathematics. I'm using this personal site as an opportunity to show off some of my passions and interests. I study math, but I'm also passionate about
             astronomy, physics, statistics, linguistics, puzzles, and more. I've been an
@@ -37,15 +46,6 @@ description: James Collier - mathematics, astrophotography, and data engineering
             data engineering and creating LID pipelines for the Yale Library.
           </p>
         </div>
-        {% if "about/portrait.jpg" | fileExists %}
-          <div class="photo-block split-photo">
-            {% image "about/portrait.jpg", "Portrait of James Collier.", { sizes: "(min-width: 768px) 200px, 100vw" } %}
-          </div>
-        {% else %}
-          <div class="placeholder-block split-photo" style="aspect-ratio: 1 / 1;">
-            <span>about/portrait.jpg - 1200×1200</span>
-          </div>
-        {% endif %}
       </div>
     </div>
   </section>
