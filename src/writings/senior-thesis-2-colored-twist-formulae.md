@@ -1,5 +1,5 @@
 ---
-title: "Senior Thesis: 2-Colored Twist Formulae in Skein Theory"
+title: "Senior Thesis: Two-Colored Twist Formulae in Skein Theory"
 date: 2026-08-19
 description: "A deeper look at my senior thesis, generalizing Yuasa's skein-theoretic twist formulae to two-colored strands and 2-bridge links."
 tags: ["math"]

@@ -200,12 +200,21 @@
   flex-direction: column;
 }
 
+/* Grid rather than flex-wrap: with flex-wrap, a long title forced the
+   whole eyebrow+title group wide enough that <time> had no room left on
+   the eyebrow's row and wrapped below everything instead of sitting
+   beside it (a short title happened to leave room, so the bug only
+   showed up on longer titles). Explicit areas keep eyebrow+time on row 1
+   and the title on its own full-width row 2 regardless of title length. */
 .writings-list li {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "eyebrow time"
+    "title   title";
   align-items: baseline;
-  justify-content: space-between;
-  gap: var(--sp-1) var(--sp-2);
+  column-gap: var(--sp-2);
+  row-gap: 0.25em;
   padding-block: var(--sp-2);
 }
 
@@ -216,10 +225,24 @@
   border-top: 1px solid var(--c-divider-on-surface);
 }
 
+/* The eyebrow+title wrapper <div> has no layout role of its own now —
+   display: contents lets its children (.eyebrow, the title link) act as
+   direct grid items of the <li> so they can land in separate areas. */
 .writings-list li > div {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25em;
+  display: contents;
+}
+
+.writings-list li > div .eyebrow {
+  grid-area: eyebrow;
+}
+
+.writings-list li > div a {
+  grid-area: title;
+}
+
+.writings-list li time {
+  grid-area: time;
+  justify-self: end;
 }
 
 .writings-list a {
